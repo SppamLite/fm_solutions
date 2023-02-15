@@ -1,3 +1,7 @@
+:root {
+  --transition: 300ms ease-in-out;
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -18,4 +22,25 @@ h6,
 p,
 body {
   margin: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button {
+  transition: var(--transition) color, var(--transition) background-color;
 }

@@ -1,7 +1,168 @@
 :root {
-  --color-cream: #F2F2F2;
+  --color-cream: #F2EAE2;
+  --color-aurometal-saurus: #6C7289;
+  --color-deep-aquamarine: #3D8168;
+  --color-deep-aquamarine-hover: #1A4032;
+  --color-gunmetal: #1C232B;
+  --font-serif: 'Fraunces', serif;
+  --font-sans: 'Montserrat', sans-serif;
 }
 
 body {
   background-color: var(--color-cream);
+}
+
+h2 {
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  letter-spacing: .5rem;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+}
+
+h5 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 2.3rem;
+}
+
+p {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.3rem;
+}
+
+button {
+  width: 100%;
+  gap: 1.1rem;
+  color: #fff;
+  display: flex;
+  font-weight: 700;
+  padding: 1.5rem 0;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  border-radius: .8rem;
+  justify-content: center;
+  font-family: var(--font-sans);
+  background-color: var(--color-deep-aquamarine);
+}
+
+button:hover {
+  background-color: var(--color-deep-aquamarine-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+main {
+  padding: 1.6rem;
+  margin-top: 1.2rem;
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    padding-top: 0;
+    margin-top: 17.5rem;
+  }
+}
+
+.preview-card {
+  display: flex;
+  overflow: hidden;
+  border-radius: 1rem;
+  flex-direction: column;
+  background-color: #fff;
+  max-width: 39.2rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+  .preview-card {
+    flex-direction: row;
+    max-width: 60rem;
+  }
+}
+
+.preview-card picture img {
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .preview-card picture img {
+    width: 30rem;
+  }
+}
+
+.preview-card__content {
+  padding: 2.4rem;
+}
+
+@media screen and (min-width: 640px) {
+  .preview-card__content {
+    padding: 3.2rem;
+  }
+}
+
+.preview-card__content h2 {
+  margin-top: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+@media screen and (min-width: 640px) {
+  .preview-card__content h2 {
+    margin-top: 2rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.preview-card__content__price-tag {
+  margin-top: 2.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;
+}
+
+@media screen and (min-width: 640px) {
+  .preview-card__content__price-tag {
+    margin-top: 2.9rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* utils */
+.sans {
+  font-family: var(--font-sans);
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.t-green {
+  color: var(--color-deep-aquamarine);
+}
+
+.t-gray {
+  color: var(--color-aurometal-saurus);
+}
+
+.t-black {
+  color: var(--color-gunmetal);
+}
+
+.line-through {
+  text-decoration: line-through;
 }
