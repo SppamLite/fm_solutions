@@ -30,7 +30,13 @@ export default function Home({ data: solutions }: PageProps<string[]>) {
         <title>Frontend Mentor Challenges Solutions | Connor Z</title>
       </Head>
       <div>
-        <a href="https://www.frontendmentor.io/profile/SppamLite" target="_blank">Frontend Mentor</a> challenges solutions:
+        <a
+          href="https://www.frontendmentor.io/profile/SppamLite"
+          target="_blank"
+        >
+          Frontend Mentor
+        </a>{" "}
+        challenges solutions:
         <ul>
           {solutions.map((solution) => (
             <li>
