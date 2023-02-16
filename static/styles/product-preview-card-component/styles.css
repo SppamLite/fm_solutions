@@ -46,7 +46,6 @@ p {
 
 button {
   width: 100%;
-  gap: 1.161rem;
   color: #fff;
   display: flex;
   height: 4.8rem;
@@ -58,14 +57,40 @@ button {
   justify-content: center;
   font-family: var(--font-sans);
   background-color: var(--color-deep-aquamarine);
+  position: relative;
 }
 
 button:hover {
   background-color: var(--color-deep-aquamarine-hover);
 }
 
-button:active {
+button div {
+  position: absolute;
+  transform-origin: 50% 50% -30px;
+  transition: all .2s ease;
+  backface-visibility: hidden;
+}
+
+button .add {
+  display: flex;
+  gap: 1.161rem;
+  transform: rotateX(0deg);
+}
+
+button .added {
+  transform: rotateX(90deg);
+}
+
+button:not(:disabled):active {
   transform: translateY(1px);
+}
+
+button.cooldown .add {
+  transform: rotateX(-90deg);
+}
+
+button.cooldown .added {
+  transform: rotateX(0deg);
 }
 
 main {
@@ -135,6 +160,9 @@ main {
   display: flex;
   align-items: center;
   gap: 1.9rem;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @media screen and (min-width: 640px) {

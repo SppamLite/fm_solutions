@@ -48,3 +48,57 @@ button {
 picture {
   display: flex;
 }
+
+.animation-in {
+  animation-duration: 0.3s, 0.3s;
+  animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1),
+    cubic-bezier(0, 0, 1, 1);
+  animation-delay: 0s, 0s;
+  animation-iteration-count: 1, 1;
+  animation-direction: normal, normal;
+  animation-fill-mode: both, both;
+  animation-play-state: running, running;
+  animation-name: contentSlideIn, contentFadeIn;
+}
+
+.animation-left {
+  animation-duration: 0.4s, 0.3s;
+  animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1),
+    cubic-bezier(0, 0, 1, 1);
+  animation-delay: 0s, 0s;
+  animation-iteration-count: 1, 1;
+  animation-direction: normal, normal;
+  animation-fill-mode: both, both;
+  animation-play-state: running, running;
+  animation-name: contentLeft, contentFadeIn;
+}
+
+@keyframes contentLeft {
+  from {
+    transform: translate3d(-40px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes contentSlideIn {
+  from {
+    transform: translate3d(0, 48px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
