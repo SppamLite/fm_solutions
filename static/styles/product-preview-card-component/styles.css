@@ -13,14 +13,15 @@ body {
 }
 
 h2 {
-  font-size: 3.2rem;
+  font-size: 3.23rem;
   line-height: 3.2rem;
   font-weight: 700;
+  letter-spacing: -.014rem;
 }
 
 h3 {
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.19rem;
   line-height: 1.5rem;
   letter-spacing: .5rem;
 }
@@ -45,12 +46,13 @@ p {
 
 button {
   width: 100%;
-  gap: 1.1rem;
+  gap: 1.161rem;
   color: #fff;
   display: flex;
+  height: 4.8rem;
   font-weight: 700;
-  padding: 1.5rem 0;
   font-size: 1.4rem;
+  align-items: center;
   line-height: 1.7rem;
   border-radius: .8rem;
   justify-content: center;

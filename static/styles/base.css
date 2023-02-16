@@ -44,3 +44,7 @@ p,
 button {
   transition: var(--transition) color, var(--transition) background-color;
 }
+
+picture {
+  display: flex;
+}
