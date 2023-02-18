@@ -51,6 +51,7 @@ const Home = ({ route, data: stats }: PageProps<Stat[]>) => {
         <link rel="stylesheet" href={`/styles${route}/styles.css`} />
       </Head>
       <main class="animation-in">
+        <h1 class="sr-only">Results Ssummary Component</h1>
         <div class="score">
           <h4 class="t-light-blue score__heading">Your Result</h4>
           <div class="score__display">
@@ -60,7 +61,8 @@ const Home = ({ route, data: stats }: PageProps<Stat[]>) => {
           <div class="score__detail">
             <h3 class="t-white score__detail__heading">Great</h3>
             <p class="t-light-blue">
-              You scored higher than 65% of the people who have taken these tests.
+              You scored higher than 65% of the people who have taken these
+              tests.
             </p>
           </div>
         </div>
@@ -73,7 +75,10 @@ const Home = ({ route, data: stats }: PageProps<Stat[]>) => {
                   <img src={icon} alt="Category icon" />
                   <p>{category}</p>
                 </div>
-                <div class="stat__item__score"><p class="t-navy t-bold">{score}</p><p class="t-navy t-bold t-opacity-50">/ 100</p></div>
+                <div class="stat__item__score">
+                  <p class="t-navy t-bold">{score}</p>
+                  <p class="t-navy t-bold t-opacity-50">/ 100</p>
+                </div>
               </div>
             ))}
           </div>

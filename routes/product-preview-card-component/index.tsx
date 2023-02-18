@@ -6,7 +6,7 @@ import CartButton from "../../islands/product-preview-cart-button.tsx";
 const Home = ({ route }: PageProps) => (
   <>
     <Head>
-      <title>Product preview card component {pageHeaderSuffix}</title>
+      <title>Product Preview Card Component {pageHeaderSuffix}</title>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         rel="preconnect"
@@ -21,6 +21,7 @@ const Home = ({ route }: PageProps) => (
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
     </Head>
     <main>
+      <h1 class="sr-only">Product Preview Card Component</h1>
       <div class="preview-card animation-in">
         <picture>
           <source
