@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 
-export default function CartButton() {
+const CartButton = () => {
   const [items, setItems] = useState<number>(0);
   const [isCoolDown, setIsCoolDown] = useState<boolean>(false);
 
@@ -44,4 +44,6 @@ export default function CartButton() {
       <div class="added">X {items}</div>
     </button>
   );
-}
+};
+
+export default CartButton;
