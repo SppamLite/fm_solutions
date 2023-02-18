@@ -1,5 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import type { Handlers, PageProps } from "$fresh/server.ts";
 
 const PRESERVED_FILE_NAMES = ["api", "index.tsx", "[name].tsx"];
 

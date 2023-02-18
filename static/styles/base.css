@@ -110,3 +110,15 @@ picture {
   white-space: nowrap;
   border-width: 0;
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inline-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
