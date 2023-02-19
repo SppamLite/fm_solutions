@@ -1,4 +1,5 @@
 import { JSX } from "preact";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useCallback, useEffect, useState } from "preact/hooks";
 
 const ratingValues = Array.from({ length: 5 }, (_, index) => `${index + 1}`);
@@ -57,6 +58,7 @@ const InteractiveRatingForm = () => {
                 value={ratingValue}
                 id={`rating_${ratingValue}`}
                 onChange={onRatingChange}
+                disabled={!IS_BROWSER}
               />
               <label for={`rating_${ratingValue}`}>{ratingValue}</label>
             </div>
@@ -64,6 +66,7 @@ const InteractiveRatingForm = () => {
         </div>
         <button
           type="submit"
+          disabled={!IS_BROWSER}
           class={showAlert ? "horizontal-shake invalid" : ""}
         >
           {showAlert ? "Please Rate 🙅‍" : "Submit"}
