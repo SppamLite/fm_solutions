@@ -54,7 +54,7 @@ const Home = ({ route, data: { rating } }: PageProps<Data>) => (
         href="https://esm.sh/react-tooltip@5.8.1/dist/react-tooltip.css"
         crossOrigin="anonymous"
       />
-      <link rel="stylesheet" href={`/styles/base.css`} />
+      <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
     </Head>
     <main class="animation-in">

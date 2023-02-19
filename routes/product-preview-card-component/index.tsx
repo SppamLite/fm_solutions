@@ -17,7 +17,7 @@ const Home = ({ route }: PageProps) => (
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
         rel="stylesheet"
       />
-      <link rel="stylesheet" href={`/styles/base.css`} />
+      <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
     </Head>
     <main>

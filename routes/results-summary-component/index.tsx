@@ -47,7 +47,7 @@ const Home = ({ route, data: stats }: PageProps<Stat[]>) => {
           href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href={`/styles/base.css`} />
+        <link rel="stylesheet" href="/styles/base.css" />
         <link rel="stylesheet" href={`/styles${route}/styles.css`} />
       </Head>
       <main class="animation-in">

@@ -1,0 +1,10 @@
+body {
+  font-size: 1.6rem;
+  padding-top: 2.4rem;
+  font-family: 'Space Mono', monospace;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 72rem;
+}
