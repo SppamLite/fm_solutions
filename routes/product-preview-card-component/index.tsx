@@ -34,15 +34,15 @@ const Home = ({ route }: PageProps) => (
           />
         </picture>
         <div class="preview-card__content">
-          <h3 class="sans t-gray">PERFUME</h3>
+          <span class="sans t-gray product-tag">PERFUME</span>
           <h2 class="serif t-black">Gabrielle Essence Eau De Parfum</h2>
           <p class="sans t-gray">
             A floral, solar and voluptuous interpretation composed by Olivier
             Polge, Perfumer-Creator for the House of CHANEL.
           </p>
           <div class="preview-card__content__price-tag">
-            <h4 class="serif t-green">$149.99</h4>
-            <h5 class="sans t-gray line-through">$169.99</h5>
+            <h3 class="serif t-green">$149.99</h3>
+            <h4 class="sans t-gray line-through">$169.99</h4>
           </div>
           <CartButton />
         </div>

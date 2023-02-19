@@ -19,20 +19,21 @@ h2 {
   letter-spacing: -.014rem;
 }
 
-h3 {
+span.product-tag {
+  display: block;
   font-weight: 500;
   font-size: 1.19rem;
   line-height: 1.5rem;
   letter-spacing: .5rem;
 }
 
-h4 {
+h3 {
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.2rem;
 }
 
-h5 {
+h4 {
   font-weight: 500;
   font-size: 1.3rem;
   line-height: 2.3rem;
