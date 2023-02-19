@@ -53,9 +53,9 @@ const Home = ({ route, data: stats }: PageProps<Stat[]>) => {
       <main class="animation-in">
         <h1 class="sr-only">Results Ssummary Component</h1>
         <div class="score">
-          <h4 class="t-light-blue score__heading">Your Result</h4>
+          <h2 class="t-light-blue score__heading">Your Result</h2>
           <div class="score__display">
-            <h2 class="t-white score__display__number">{score}</h2>
+            <span class="t-white score__display__number">{score}</span>
             <p class="t-light-blue t-bold t-opacity-50">of 100</p>
           </div>
           <div class="score__detail">
