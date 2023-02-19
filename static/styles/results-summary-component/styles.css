@@ -17,7 +17,11 @@
 body {
   font-family: 'Hanken Grotesk', sans-serif;
 }
-
+@media screen and (min-width: 640px) {
+  body {
+    padding-top: 28.4rem;
+  }
+}
 main {
   display: flex;
   margin: 0 auto;
@@ -34,7 +38,6 @@ main {
     flex-direction: row;
     border-radius: 3.2rem;
     box-shadow: var(--shadow);
-    margin-top: 28.4rem;
     height: 51.2rem;
   }
 }

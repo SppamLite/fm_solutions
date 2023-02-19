@@ -48,7 +48,7 @@ main {
 @media screen and (min-width: 640px) {
   main {
     height: auto;
-    margin-top: 19.5rem;
+    padding-top: 19.5rem;
   }
 }
 
