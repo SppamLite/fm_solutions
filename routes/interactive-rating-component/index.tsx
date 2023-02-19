@@ -1,6 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
+import FancyAnchorTag from "../../islands/fancy-anchor-tag.tsx";
 import InteractiveRatingForm from "../../islands/interactive-rating-form.tsx";
 import { pageHeaderSuffix } from "../../utils/constants.ts";
 
@@ -15,14 +16,22 @@ export const handler: Handlers<Data> = {
   },
 };
 
-const RateResult = ({ rating }: { rating: string }) => (
-  <div>
-    <h5>You selected {rating} out of 5</h5>
-    <h2>Thank you!</h2>
-    <p>
-      We appreciate you taking the time to give a rating. If you ever need more
-      support, don’t hesitate to get in touch!
-    </p>
+const RatingResult = ({ rating, route }: { rating: string; route: string }) => (
+  <div class="rating-result">
+    <img src={`/images${route}/illustration-thank-you.svg`} alt="Thank you" />
+    <FancyAnchorTag
+      toText="reset rating"
+      fromText={`You selected ${rating} out of 5`}
+      href={`${route}/reset-rating`}
+      class="rating-result__link"
+    />
+    <div class="rating-result__body">
+      <h2 class="t-white">Thank you!</h2>
+      <p class="t-light-gray">
+        We appreciate you taking the time to give a rating. If you ever need
+        more support, don’t hesitate to get in touch!
+      </p>
+    </div>
   </div>
 );
 
@@ -51,7 +60,9 @@ const Home = ({ route, data: { rating } }: PageProps<Data>) => (
     <main class="animation-in">
       <h1 class="sr-only">Interactive Rating Component</h1>
       <div class="container">
-        {!rating ? <InteractiveRatingForm /> : <RateResult rating={rating} />}
+        {!rating
+          ? <InteractiveRatingForm />
+          : <RatingResult rating={rating} route={route} />}
       </div>
     </main>
   </>

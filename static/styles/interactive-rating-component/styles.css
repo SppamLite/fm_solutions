@@ -102,12 +102,13 @@ form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin-top: 2.7rem;
+  margin-top: 2.4rem;
 }
 
 @media screen and (min-width: 640px) {
   form {
     gap: 3.2rem;
+    margin-top: 2.7rem;
   }
 }
 
@@ -182,6 +183,70 @@ form {
 .rating-item input[type="radio"]:checked+label {
   color: #fff;
   background-color: var(--color-mid-gray);
+}
+
+.rating-result {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 640px) {
+  .rating-result {
+    gap: 3.2rem;
+  }
+}
+
+.rating-result img {
+  max-width: 14.4rem;
+}
+
+@media screen and (min-width: 640px) {
+  .rating-result img {
+    max-width: 16.2rem;
+  }
+}
+
+.rating-result__link {
+  display: flex;
+  font-weight: 400;
+  color: var(--color-orange);
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  height: 3.2rem;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+  background-color: var(--color-dark-blue);
+  padding: 0 1.2rem;
+  border-radius: 2.25rem;
+  max-width: 19.3rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 19.3rem;
+}
+
+@media screen and (min-width: 640px) {
+  .rating-result__link {
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    max-width: 16.8rem;
+    min-width: 16.8rem;
+  }
+}
+
+.rating-result__body {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 640px) {
+  .rating-result__body {
+    gap: .7rem;
+  }
 }
 
 .horizontal-shake {
