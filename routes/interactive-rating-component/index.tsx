@@ -28,8 +28,7 @@ const RatingResult = ({ rating, route }: { rating: string; route: string }) => (
     <div class="rating-result__body">
       <h2 class="t-white">Thank you!</h2>
       <p class="t-light-gray">
-        We appreciate you taking the time to give a rating. If you ever need
-        more support, don’t hesitate to get in touch!
+        Click the button where it says "You selected x out of 5" to re-rate 😁.
       </p>
     </div>
   </div>
