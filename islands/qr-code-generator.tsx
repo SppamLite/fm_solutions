@@ -1,6 +1,7 @@
 // deno-lint-ignore-file ban-ts-comment
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
+
 // @ts-ignore
 import QRCode from "../third-party-packages/qrcode.js";
 
@@ -11,8 +12,8 @@ type Props = {
 const QrCodeGenerator = ({
   urls = ["https://www.frontendmentor.io/"],
 }: Props) => {
-  const qrcodeRef = useRef(null);
   const codeGenRef = useRef(null);
+  const qrcodeRef = useRef<HTMLDivElement>(null);
   const [url, setUrl] = useState<string>(urls[0]);
 
   useEffect(() => {
