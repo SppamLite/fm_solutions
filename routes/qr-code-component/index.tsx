@@ -10,7 +10,7 @@ export const handler: Handlers<string[]> = {
     const solutions = await loadSolutions();
     const urls = [
       "https://www.frontendmentor.io/",
-      ...solutions.map((s) => `${hostname}/${s}`),
+      ...solutions.map((s) => `https://${hostname}/${s}`),
     ];
     return ctx.render(urls);
   },

@@ -45,6 +45,7 @@ section {
   background-color: #fff;
   padding: 1.6rem 1.6rem 4rem;
   box-shadow: 0px 25px 25px rgba(0, 0, 0, 0.0476518);
+  user-select: none;
 }
 
 .qr-code {
@@ -57,14 +58,12 @@ section {
   align-items: center;
   justify-content: center;
 }
-.qrcode-svg {
-  display: flex;
+
+.qr-code div {
+  transition: var(--transition) transform;
 }
-.qrcode-svg svg rect {
-  fill: transparent;
-}
-.qrcode-svg svg path {
-  fill: #fff;
+.qr-code:hover div {
+  transform: translateY(-4px);
 }
 
 .description {

@@ -1,6 +1,6 @@
 // deno-lint-ignore-file ban-ts-comment
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
-
+import { IS_BROWSER } from "$fresh/runtime.ts";
 // @ts-ignore
 import QRCode from "../third-party-packages/qrcode.js";
 
@@ -38,18 +38,26 @@ const QrCodeGenerator = ({
     setUrl(urls[nextIndex]);
   }, [urls, url]);
 
-  return (
-    <div
-      style={{
-        width: 160,
-        display: "flex",
-        cursor: "pointer",
-        userSelect: "none",
-      }}
-      onClick={handleChangeCode}
-      ref={qrcodeRef}
-    />
-  );
+  return (IS_BROWSER
+    ? (
+      <div
+        style={{
+          width: 160,
+          display: "flex",
+          cursor: "pointer",
+        }}
+        onClick={handleChangeCode}
+        ref={qrcodeRef}
+      />
+    )
+    : (
+      <div>
+        <img
+          src="/images/qr-code-component/qr-code.svg"
+          alt="QR Code place holder"
+        />
+      </div>
+    ));
 };
 
 export default QrCodeGenerator;
