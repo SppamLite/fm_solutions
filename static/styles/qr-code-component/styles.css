@@ -1,7 +1,63 @@
 :root {
   --color-light-gray: #D5E1EF;
+  --color-dark-navy: #1F314F;
+  --color-gray: #7D889E;
 }
 
 body {
   background-color: var(--color-light-gray);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* typography */
+h2 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+  letter-spacing: .004rem;
+  color: var(--color-dark-navy);
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 0 1.6rem;
+  line-height: 1.89rem;
+  letter-spacing: .019rem;
+  color: var(--color-gray);
+}
+
+/* layout */
+main {
+  padding: 8.5rem 2.7rem 0 2.8rem;
+}
+@media screen and (min-width: 640px) {
+  main {
+    padding: 0;
+    padding-top: 15.2rem;
+  }
+}
+
+section {
+  margin: 0 auto;
+  max-width: 32rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  padding: 1.6rem 1.6rem 4rem;
+  box-shadow: 0px 25px 25px rgba(0, 0, 0, 0.0476518);
+}
+
+.qr-code {
+  width: 100%;
+  height: 28.8rem;
+  background-repeat: no-repeat;
+  background-image: url('/images/qr-code-component/qr-code-bg.svg');
+  margin-bottom: 2.4rem;
+}
+
+.description {
+  gap: 1.6rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }
