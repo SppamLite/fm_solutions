@@ -53,6 +53,18 @@ section {
   background-repeat: no-repeat;
   background-image: url('/images/qr-code-component/qr-code-bg.svg');
   margin-bottom: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qrcode-svg {
+  display: flex;
+}
+.qrcode-svg svg rect {
+  fill: transparent;
+}
+.qrcode-svg svg path {
+  fill: #fff;
 }
 
 .description {

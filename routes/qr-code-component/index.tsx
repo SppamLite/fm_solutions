@@ -1,8 +1,22 @@
 import { Head } from "$fresh/runtime.ts";
-import type { PageProps } from "$fresh/server.ts";
+import type { Handlers, PageProps } from "$fresh/server.ts";
+import QrCodeGenerator from "../../islands/qr-code-generator.tsx";
 import { pageHeaderSuffix } from "../../utils/constants.ts";
+import { loadSolutions } from "../../utils/functions.ts";
 
-const Home = ({ route }: PageProps) => {
+export const handler: Handlers<string[]> = {
+  async GET({ url }, ctx) {
+    const { hostname } = new URL(url);
+    const solutions = await loadSolutions();
+    const urls = [
+      "https://www.frontendmentor.io/",
+      ...solutions.map((s) => `${hostname}/${s}`),
+    ];
+    return ctx.render(urls);
+  },
+};
+
+const Home = ({ route, data }: PageProps<string[]>) => {
   return (
     <>
       <Head>
@@ -22,8 +36,9 @@ const Home = ({ route }: PageProps) => {
       </Head>
       <main>
         <h1 class="sr-only">QR Code Component</h1>
-        <section>
+        <section class="animation-in">
           <div class="qr-code">
+            <QrCodeGenerator urls={data} />
           </div>
           <div class="description">
             <h2>Improve your front-end skills by building projects</h2>

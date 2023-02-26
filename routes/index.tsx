@@ -1,20 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import type { Handlers, PageProps } from "$fresh/server.ts";
-
-const PRESERVED_FILE_NAMES = ["api", "index.tsx", "[name].tsx"];
-
-const loadSolutions = async (): Promise<string[]> => {
-  const __dirname = new URL(".", import.meta.url);
-  const promises = [];
-  for await (const dirEntry of Deno.readDir(__dirname)) {
-    const folderName = dirEntry.name;
-    if (PRESERVED_FILE_NAMES.includes(folderName)) {
-      continue;
-    }
-    promises.push(dirEntry.name);
-  }
-  return await Promise.all(promises) as string[];
-};
+import { loadSolutions } from "../utils/functions.ts";
 
 export const handler: Handlers<string[]> = {
   async GET(_req, ctx) {

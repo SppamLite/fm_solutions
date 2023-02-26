@@ -16,6 +16,7 @@ import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/fancy-anchor-tag.tsx";
 import * as $$2 from "./islands/interactive-rating-form.tsx";
 import * as $$3 from "./islands/product-preview-cart-button.tsx";
+import * as $$4 from "./islands/qr-code-generator.tsx";
 
 const manifest = {
   routes: {
@@ -34,6 +35,7 @@ const manifest = {
     "./islands/fancy-anchor-tag.tsx": $$1,
     "./islands/interactive-rating-form.tsx": $$2,
     "./islands/product-preview-cart-button.tsx": $$3,
+    "./islands/qr-code-generator.tsx": $$4,
   },
   baseUrl: import.meta.url,
   config,
