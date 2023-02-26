@@ -4,19 +4,25 @@ import QrCodeGenerator from "../../islands/qr-code-generator.tsx";
 import { pageHeaderSuffix } from "../../utils/constants.ts";
 import { loadSolutions } from "../../utils/functions.ts";
 
-export const handler: Handlers<string[]> = {
+type Data = {
+  urls: string[];
+  query: string;
+};
+
+export const handler: Handlers<Data> = {
   async GET({ url }, ctx) {
-    const { hostname } = new URL(url);
+    const { hostname, searchParams } = new URL(url);
+    const query = searchParams.get("qr") || "";
     const solutions = await loadSolutions();
     const urls = [
       "https://www.frontendmentor.io/",
       ...solutions.map((s) => `https://${hostname}/${s}`),
     ];
-    return ctx.render(urls);
+    return ctx.render({ urls, query });
   },
 };
 
-const Home = ({ route, data }: PageProps<string[]>) => {
+const Home = ({ route, data }: PageProps<Data>) => {
   return (
     <>
       <Head>
@@ -38,7 +44,7 @@ const Home = ({ route, data }: PageProps<string[]>) => {
         <h1 class="sr-only">QR Code Component</h1>
         <section class="animation-in">
           <div class="qr-code">
-            <QrCodeGenerator urls={data} />
+            <QrCodeGenerator urls={data.urls} query={data.query} />
           </div>
           <div class="description">
             <h2>Improve your front-end skills by building projects</h2>

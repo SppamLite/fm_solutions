@@ -6,15 +6,18 @@ import { IS_BROWSER } from "$fresh/runtime.ts";
 import QRCode from "../third-party-packages/qrcode.js";
 
 type Props = {
+  query?: string;
   urls: string[];
 };
 
 const QrCodeGenerator = ({
+  query,
   urls = ["https://www.frontendmentor.io/"],
 }: Props) => {
+  const initUrl = query ? query : urls[0];
   const codeGenRef = useRef(null);
   const qrcodeRef = useRef<HTMLDivElement>(null);
-  const [url, setUrl] = useState<string>(urls[0]);
+  const [url, setUrl] = useState<string>(initUrl);
 
   useEffect(() => {
     if (codeGenRef.current) {
