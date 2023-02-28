@@ -9,14 +9,16 @@ import * as $2 from "./routes/api/joke.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $4 from "./routes/interactive-rating-component/index.tsx";
 import * as $5 from "./routes/interactive-rating-component/reset-rating.ts";
-import * as $6 from "./routes/product-preview-card-component/index.tsx";
-import * as $7 from "./routes/qr-code-component/index.tsx";
-import * as $8 from "./routes/results-summary-component/index.tsx";
+import * as $6 from "./routes/password-generator-app/index.tsx";
+import * as $7 from "./routes/product-preview-card-component/index.tsx";
+import * as $8 from "./routes/qr-code-component/index.tsx";
+import * as $9 from "./routes/results-summary-component/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/fancy-anchor-tag.tsx";
 import * as $$2 from "./islands/interactive-rating-form.tsx";
-import * as $$3 from "./islands/product-preview-cart-button.tsx";
-import * as $$4 from "./islands/qr-code-generator.tsx";
+import * as $$3 from "./islands/password-generator.tsx";
+import * as $$4 from "./islands/product-preview-cart-button.tsx";
+import * as $$5 from "./islands/qr-code-generator.tsx";
 
 const manifest = {
   routes: {
@@ -26,16 +28,18 @@ const manifest = {
     "./routes/index.tsx": $3,
     "./routes/interactive-rating-component/index.tsx": $4,
     "./routes/interactive-rating-component/reset-rating.ts": $5,
-    "./routes/product-preview-card-component/index.tsx": $6,
-    "./routes/qr-code-component/index.tsx": $7,
-    "./routes/results-summary-component/index.tsx": $8,
+    "./routes/password-generator-app/index.tsx": $6,
+    "./routes/product-preview-card-component/index.tsx": $7,
+    "./routes/qr-code-component/index.tsx": $8,
+    "./routes/results-summary-component/index.tsx": $9,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
     "./islands/fancy-anchor-tag.tsx": $$1,
     "./islands/interactive-rating-form.tsx": $$2,
-    "./islands/product-preview-cart-button.tsx": $$3,
-    "./islands/qr-code-generator.tsx": $$4,
+    "./islands/password-generator.tsx": $$3,
+    "./islands/product-preview-cart-button.tsx": $$4,
+    "./islands/qr-code-generator.tsx": $$5,
   },
   baseUrl: import.meta.url,
   config,
