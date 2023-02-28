@@ -213,7 +213,7 @@ input[type="checkbox"] {
   position: relative;
   box-sizing: border-box;
   border: 2px solid var(--color-light-gray);
-  transition: 200ms ease-in-out border-color, 200ms ease-in-out background-color;
+  transition: var(--transition) border-color, 200ms ease-in-out background-color;
 }
 
 input[type="checkbox"]::before {
