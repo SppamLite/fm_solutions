@@ -17,14 +17,14 @@ body {
 
 /* typography */
 input[type="text"] {
-  font-size: 1.6rem;
-  line-height: 2.112rem;
+  font-size: 2.4rem;
+  line-height: 3.168rem;
 }
 
 @media screen and (min-width: 640px) {
   input[type="text"] {
-    font-size: 2.4rem;
-    line-height: 3.168rem;
+    font-size: 3.2rem;
+    line-height: 4.224rem;
   }
 }
 
@@ -74,6 +74,12 @@ main {
   margin: 0 auto;
   max-width: 54rem;
   padding-top: 6.4rem;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    padding-top: 13.3rem;
+  }
 }
 
 .heading {
@@ -145,6 +151,19 @@ input[type="text"] {
   }
 }
 
+.control-panel__password-configs {
+  gap: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  margin: 3.2rem 0;
+}
+
+@media screen and (min-width: 640px) {
+  .control-panel__password-configs {
+    gap: 2rem;
+  }
+}
+
 label {
   color: var(--color-light-gray);
 }
@@ -166,6 +185,65 @@ label {
   font-size: 2.4rem;
   line-height: 3.168rem;
   color: var(--color-neon-green);
+}
+
+@media screen and (min-width: 640px) {
+  .length-slider__value {
+    font-size: 3.2rem;
+    line-height: 4.224rem;
+  }
+}
+
+.checkbox {
+  gap: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox label {
+  cursor: pointer;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  all: unset;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid var(--color-light-gray);
+  transition: 200ms ease-in-out border-color, 200ms ease-in-out background-color;
+}
+
+input[type="checkbox"]::before {
+  inset: 0;
+  content: '';
+  position: absolute;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transform: translateY(4px) rotate(45deg);
+  transition: 300ms ease transform;
+}
+
+input[type="checkbox"]:checked:before {
+  transform: translateY(0) rotate(0);
+  background-image: url('/images/password-generator-app/icon-check.svg');
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--color-neon-green);
+  background-color: var(--color-neon-green);
+}
+
+input[type="checkbox"]:focus {
+  border-color: var(--color-neon-green);
+  outline: var(--color-neon-green) dotted .2rem;
+  outline-offset: .4rem;
+}
+
+.checkbox:hover input[type="checkbox"] {
+  border-color: var(--color-neon-green);
 }
 
 /* utils */
