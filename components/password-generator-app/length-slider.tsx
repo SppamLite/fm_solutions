@@ -38,7 +38,9 @@ export const LengthSlider = ({
   return (
     <div>
       <div class="length-slider">
-        <label htmlFor="character-length">Character Length</label>
+        <label htmlFor="character-length" class="t-light-gray">
+          Character Length
+        </label>
         <span class="length-slider__value">{value}</span>
       </div>
       <input

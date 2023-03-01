@@ -4,7 +4,7 @@ import { PasswordDisplay } from "../components/password-generator-app/password-d
 import { LengthSlider } from "../components/password-generator-app/length-slider.tsx";
 import { Checkbox } from "../components/password-generator-app/checkbox.tsx";
 import { StrengthMeter } from "../components/password-generator-app/strength-meter.tsx";
-import { Button } from '../components/Button.tsx'
+import { Button } from "../components/Button.tsx";
 
 const PasswordGenerator = () => {
   const characterLength = useSignal<number>(10);
@@ -66,9 +66,18 @@ const PasswordGenerator = () => {
           />
         </div>
         <StrengthMeter password={password.value} />
-        <Button class="generate-btn" type="button" disabled={password.value.length === 0}>
+        <Button
+          class="generate-btn"
+          type="button"
+          disabled={password.value.length === 0}
+        >
           <span>GENERATE</span>
-          <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg>
+          <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="#24232C"
+              d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+            />
+          </svg>
         </Button>
       </div>
     </div>

@@ -7,6 +7,6 @@ type Props = JSX.HTMLAttributes<HTMLInputElement> & {
 export const Checkbox = ({ label, id, ...rest }: Props) => (
   <div class="checkbox">
     <input type="checkbox" {...rest} id={id} />
-    <label htmlFor={id}>{label}</label>
+    <label htmlFor={id} class="t-light-gray">{label}</label>
   </div>
 );

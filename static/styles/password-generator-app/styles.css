@@ -162,10 +162,10 @@ input[type="text"] {
   .control-panel__password-configs {
     gap: 2rem;
   }
-}
 
-label {
-  color: var(--color-light-gray);
+  .control-panel__password-configs label {
+    line-height: 2.24rem;
+  }
 }
 
 .length-slider {
@@ -212,6 +212,7 @@ input[type="checkbox"] {
   cursor: pointer;
   position: relative;
   box-sizing: border-box;
+  transform: translateY(-2.4px);
   border: 2px solid var(--color-light-gray);
   transition: var(--transition) border-color, 200ms ease-in-out background-color;
 }
@@ -227,7 +228,7 @@ input[type="checkbox"]::before {
 }
 
 input[type="checkbox"]:checked:before {
-  transform: translateY(0) rotate(0);
+  transform: translateY(.5px) rotate(0);
   background-image: url('/images/password-generator-app/icon-check.svg');
 }
 
@@ -252,6 +253,7 @@ input[type="checkbox"]:focus {
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-deep-dark-gray);
+  user-select: none;
 }
 
 @media screen and (min-width: 640px) {
@@ -269,6 +271,7 @@ input[type="checkbox"]:focus {
   .strength-meter__value {
     font-size: 2.4rem;
     line-height: 3.168rem;
+    transform: translateY(1.7px);
   }
 }
 
@@ -326,6 +329,7 @@ input[type="checkbox"]:focus {
   margin-top: 1.6rem;
   align-items: center;
   line-height: 2.112rem;
+  box-sizing: border-box;
   justify-content: center;
   border: 2px solid var(--color-neon-green);
   background-color: var(--color-neon-green);
@@ -351,7 +355,8 @@ input[type="checkbox"]:focus {
     font-size: 1.8rem;
     margin-top: 3.2rem;
     line-height: 2.376rem;
-    gap: 2.4rem;
+    gap: 2.46rem;
+    height: 6.5rem;
   }
 
   .generate-btn:hover {
