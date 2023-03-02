@@ -1,3 +1,4 @@
+import { passwordStrength } from "check-password-strength";
 type Props = {
   password: string;
 };
@@ -12,16 +13,14 @@ const ColorTable: Record<Strength, string> = {
   "STRONG": "green",
 };
 
-const getStrenth = (password: string): Strength => {
-  // lets do length check for now
-  // TODO: update to better password strength meter
-  const length = password.length;
-  switch (true) {
-    case length < 5:
+const getStrength = (password: string): Strength => {
+  const { id } = passwordStrength(password);
+  switch (id) {
+    case 0:
       return "TOO WEAK!";
-    case length < 10:
+    case 1:
       return "WEAK";
-    case length < 15:
+    case 2:
       return "MEDIUM";
     default:
       return "STRONG";
@@ -46,15 +45,25 @@ const Meater = ({ strength }: { strength: Strength }) => {
 };
 
 export const StrengthMeter = ({ password }: Props) => {
-  const strength = getStrenth(password);
+  const strength = getStrength(password);
   return (
     <div class="strength-meter">
       <label class="t-gray">STRENGTH</label>
       <div class="strength-meter__container">
-        <span class="t-light-gray strength-meter__value">{strength}</span>
-        <div class="strength-meter__indicators">
-          <Meater strength={strength} />
-        </div>
+        {password.length <= 4
+          ? (
+            <span class="t-light-gray strength-meter__value">
+              SERIOUSLY? 🙂
+            </span>
+          )
+          : (
+            <>
+              <span class="t-light-gray strength-meter__value">{strength}</span>
+              <div class="strength-meter__indicators">
+                <Meater strength={strength} />
+              </div>
+            </>
+          )}
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import { computed, useSignal } from "@preact/signals";
-import { A, pipe, S } from "@mobily/ts-belt";
+import { JSX } from "preact";
+import { A, D, N, pipe, S } from "@mobily/ts-belt";
+import { generate, Option as PasswordGenOption } from "@wcj/generate-password";
 import { PasswordDisplay } from "../components/password-generator-app/password-display.tsx";
 import { LengthSlider } from "../components/password-generator-app/length-slider.tsx";
 import { Checkbox } from "../components/password-generator-app/checkbox.tsx";
@@ -7,13 +9,14 @@ import { StrengthMeter } from "../components/password-generator-app/strength-met
 import { Button } from "../components/Button.tsx";
 
 const PasswordGenerator = () => {
-  const characterLength = useSignal<number>(10);
-  const isUpperCase = useSignal<boolean>(true);
-  const isLowerCase = useSignal<boolean>(true);
-  const includeNumbers = useSignal<boolean>(true);
-  const includeSymbols = useSignal<boolean>(false);
+  const passwordGenConfig = useSignal<PasswordGenOption>({
+    upperCase: true,
+    lowerCase: true,
+    numeric: true,
+    special: false,
+  });
 
-  // TODO: re-generate password based on the change of the above configs
+  const characterLength = useSignal<number>(10);
   const gendPassword = useSignal<string>("PTx1f5DaFXsMyB^xse4&flMMi");
   const password = computed<string>(() =>
     pipe(
@@ -23,12 +26,43 @@ const PasswordGenerator = () => {
       A.join(""),
     )
   );
+
   const onCopy = () => {};
 
   const onCharacterLengthChange = (
     value: string,
   ) => {
     characterLength.value = Number(value);
+  };
+
+  const handleChangeConfig: JSX.GenericEventHandler<HTMLInputElement> = (
+    { currentTarget },
+  ) => {
+    const checked = currentTarget.checked;
+    const id = currentTarget.id;
+    if (id in passwordGenConfig.value) {
+      passwordGenConfig.value = {
+        ...passwordGenConfig.value,
+        [id]: checked,
+      };
+    }
+  };
+
+  const handleGenerate = () => {
+    const isValidConfig = pipe(
+      passwordGenConfig.value,
+      D.filter((v) => !!v),
+      D.keys,
+      A.length,
+      N.gt(0),
+    ); // at least one option should be true
+    if (!isValidConfig) {
+      return;
+    }
+    gendPassword.value = generate({
+      length: 20,
+      ...passwordGenConfig.value,
+    });
   };
 
   return (
@@ -45,30 +79,35 @@ const PasswordGenerator = () => {
         />
         <div class="control-panel__password-configs">
           <Checkbox
-            checked={isUpperCase.value}
-            id="uppercase"
+            checked={passwordGenConfig.value.upperCase}
+            id="upperCase"
             label="Include Uppercase Letters"
+            onChange={handleChangeConfig}
           />
           <Checkbox
-            checked={isLowerCase.value}
-            id="lowercase"
+            checked={passwordGenConfig.value.lowerCase}
+            id="lowerCase"
             label="Include Lowercase Letters"
+            onChange={handleChangeConfig}
           />
           <Checkbox
-            checked={includeNumbers.value}
-            id="numbers"
+            checked={passwordGenConfig.value.numeric}
+            id="numeric"
             label="Include Numbers"
+            onChange={handleChangeConfig}
           />
           <Checkbox
-            checked={includeSymbols.value}
-            id="symbols"
+            checked={passwordGenConfig.value.special}
+            id="special"
             label="Include Symbols"
+            onChange={handleChangeConfig}
           />
         </div>
         <StrengthMeter password={password.value} />
         <Button
-          class="generate-btn"
           type="button"
+          class="generate-btn"
+          onClick={handleGenerate}
           disabled={password.value.length === 0}
         >
           <span>GENERATE</span>

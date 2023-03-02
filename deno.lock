@@ -122,6 +122,8 @@
     "https://esm.sh/*@preact/signals@1.0.3": "0c7fa9548961281b10103645c28bbc8dc0724a98ac66876d523c897674546a5c",
     "https://esm.sh/*preact-render-to-string@5.2.4": "b5ea1be1c1c40c87e04f7f29921e504032e0afa618ca8941aad479ea0f4d8751",
     "https://esm.sh/@mobily/ts-belt@3.13.1": "e46e76b455b356707896481d284281312a67f97a84a3a21bcbf1511a71d456cb",
+    "https://esm.sh/@wcj/generate-password@1.0.3": "0a9a6d7fded5bb48351a63b550059c41c19a0b0262b163bd36b572db61dd6727",
+    "https://esm.sh/check-password-strength@2.0.7": "bdd0437e7ba189fbe0679b8517620c51396b827aa389afc36274dd8410333985",
     "https://esm.sh/preact@10.11.0": "e888b244446037c56f1881173fb51d1f5fa7aae5599e6c5154619346a6a5094e",
     "https://esm.sh/preact@10.11.0/hooks": "2b8ec155eb8b87501663f074acff1d55a9114fa7d88f0b39da06c940af1ff736",
     "https://esm.sh/preact@10.11.0/jsx-runtime": "5c123264f19799ab243211132dded45f6d42d594b5c78dd585f947d07bf20eae",
@@ -180,6 +182,10 @@
     "https://esm.sh/v108/@mobily/ts-belt@3.13.1/dist/types/global.d.ts": "04d31aadecf874f368d224e99549747555bb5538ce8be0b8b98c1b5d715e19ab",
     "https://esm.sh/v108/@mobily/ts-belt@3.13.1/dist/types/index.d.ts": "2d7169055316e789254925dcbae4970227b6a52c8caec9a782f924894ccdae33",
     "https://esm.sh/v108/@mobily/ts-belt@3.13.1/dist/types/pipe.d.ts": "540455e2a9cc3fab7e0a56ac2ab5568035afba0228559db2ef17f363c2dccf34",
-    "https://esm.sh/v108/@mobily/ts-belt@3.13.1/dist/types/types.d.ts": "17798ff8f081f6cae66c13b2f0fa72f9387f346263bde78960161e4a382c8cea"
+    "https://esm.sh/v108/@mobily/ts-belt@3.13.1/dist/types/types.d.ts": "17798ff8f081f6cae66c13b2f0fa72f9387f346263bde78960161e4a382c8cea",
+    "https://esm.sh/v110/@wcj/generate-password@1.0.3/deno/generate-password.js": "ab70d9bbb66b2491a3df0417a2600db9f7346879c408f8bfc9af574c01b390de",
+    "https://esm.sh/v110/@wcj/generate-password@1.0.3/dist/index.d.ts": "f3d354376f456238bbf6ea218a15c1d4c5d6fe9eca85ee53695729e0c21921e6",
+    "https://esm.sh/v110/check-password-strength@2.0.7/deno/check-password-strength.js": "15d7796511e62b2b77be26c4b12c5aed33752965105e5a8ddf3e74d1557bc471",
+    "https://esm.sh/v110/check-password-strength@2.0.7/index.d.ts": "b262191cd0b5d798bf9e4cefea67310f2f9335b4fbc7207c5bdf2bd52cd0c4b9"
   }
 }
