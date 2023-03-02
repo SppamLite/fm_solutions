@@ -1,0 +1,423 @@
+:root {
+  --color-dark-gray: #24232C;
+  --color-gray: #817D92;
+  --color-light-gray: #E6E5EA;
+  --color-deep-dark-gray: #18171F;
+  --color-neon-green: #A4FFAF;
+  --color-red: #F64A4A;
+  --color-orange: #FB7C58;
+  --color-yellow: #F8CD65;
+}
+
+body {
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--color-deep-dark-gray);
+}
+
+/* typography */
+input[type="text"] {
+  font-size: 2.4rem;
+  line-height: 3.168rem;
+}
+
+@media screen and (min-width: 640px) {
+  input[type="text"] {
+    font-size: 3.2rem;
+    line-height: 4.224rem;
+  }
+}
+
+h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 2.112rem;
+}
+
+@media screen and (min-width: 640px) {
+  h2 {
+    font-size: 2.4rem;
+    line-height: 3.168rem;
+  }
+}
+
+h3 {
+  font-size: 2.4rem;
+  line-height: 3.168rem;
+}
+
+@media screen and (min-width: 640px) {
+  h3 {
+    font-size: 3.2rem;
+    line-height: 4.224rem;
+  }
+}
+
+label {
+  font-size: 1.6rem;
+  line-height: 2.112rem;
+}
+
+@media screen and (min-width: 640px) {
+  label {
+    font-size: 1.8rem;
+    line-height: 2.376rem;
+  }
+}
+
+/* layout */
+main {
+  padding: 0 1.6rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 54rem;
+  padding-top: 6.4rem;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    padding-top: 13.3rem;
+  }
+}
+
+.heading {
+  margin-bottom: 1.6rem;
+}
+
+@media screen and (min-width: 640px) {
+  .heading {
+    margin-bottom: 3.1rem;
+  }
+}
+
+/* components */
+button:focus,
+input:focus {
+  outline: var(--color-neon-green) dotted .2rem;
+  outline-offset: .4rem;
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+button.copy-btn svg path {
+  transition: var(--transition) fill;
+}
+button.copy-btn:not(:disabled):hover svg path {
+  fill: #fff;
+}
+button.copy-btn:disabled svg path {
+  fill: #fff;
+}
+button.copy-btn {
+  margin-top: .3rem;
+}
+
+.copy-control {
+  gap: 1.6rem;
+  display: flex;
+}
+
+.copy-control .copied {
+  color: var(--color-neon-green);
+  font-size: 1.8rem;
+  line-height: 2.376rem;
+  margin-top: .3rem;
+}
+
+.password-display {
+  display: flex;
+  height: 6.4rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-dark-gray);
+  padding-left: 1.6rem;
+  padding-right: 1.55rem;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+@media screen and (min-width: 640px) {
+  .password-display {
+    gap: 2.4rem;
+    height: 8rem;
+    margin-bottom: 2.4rem;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
+input[type="text"] {
+  width: 100%;
+  border: none;
+  background: none;
+  color: var(--color-light-gray);
+}
+
+.control-panel {
+  padding: 1.6rem;
+  background-color: var(--color-dark-gray);
+}
+
+@media screen and (min-width: 640px) {
+  .control-panel {
+    padding: 2.4rem 3.2rem 3.2rem;
+  }
+}
+
+.control-panel__password-configs {
+  gap: 1.6rem;
+  display: flex;
+  margin: 3.2rem 0;
+  position: relative;
+  outline-width: 2px;
+  outline-offset: 1rem;
+  outline-style: dotted;
+  flex-direction: column;
+  outline-color: transparent;
+  transition: var(--transition) outline;
+}
+
+.control-panel__password-configs::before {
+  content: 'PICK ONE 🙄';
+  right: 0;
+  opacity: 0;
+  bottom: -2rem;
+  font-size: 1.4rem;
+  position: absolute;
+  color: var(--color-neon-green);
+  transition: var(--transition) bottom, var(--transition) opacity;
+}
+
+@media screen and (min-width: 640px) {
+  .control-panel__password-configs::before {
+    font-size: 2.4rem;
+  }
+}
+
+.control-panel__password-configs.warn {
+  outline-color: var(--color-neon-green);
+}
+
+.control-panel__password-configs.warn::before {
+  bottom: 0;
+  opacity: 1;
+}
+
+@media screen and (min-width: 640px) {
+  .control-panel__password-configs {
+    gap: 2rem;
+  }
+
+  .control-panel__password-configs label {
+    line-height: 2.24rem;
+  }
+}
+
+.length-slider {
+  display: flex;
+  align-items: center;
+  margin-bottom: .8rem;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 640px) {
+  .length-slider {
+    margin-bottom: 1.6rem;
+  }
+}
+
+.length-slider__value {
+  font-size: 2.4rem;
+  line-height: 3.168rem;
+  color: var(--color-neon-green);
+}
+
+@media screen and (min-width: 640px) {
+  .length-slider__value {
+    font-size: 3.2rem;
+    line-height: 4.224rem;
+  }
+}
+
+.checkbox {
+  gap: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox label {
+  cursor: pointer;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  all: unset;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  transform: translateY(-2.4px);
+  border: 2px solid var(--color-light-gray);
+  transition: var(--transition) border-color, 200ms ease-in-out background-color;
+}
+
+input[type="checkbox"]::before {
+  inset: 0;
+  content: '';
+  position: absolute;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transform: translateY(4px) rotate(45deg);
+  transition: 300ms ease transform;
+}
+
+input[type="checkbox"]:checked:before {
+  transform: translateY(.5px) rotate(0);
+  background-image: url('/images/password-generator-app/icon-check.svg');
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--color-neon-green);
+  background-color: var(--color-neon-green);
+}
+
+input[type="checkbox"]:focus {
+  border-color: var(--color-neon-green);
+  outline: var(--color-neon-green) dotted .2rem;
+  outline-offset: .4rem;
+}
+
+.checkbox:hover input[type="checkbox"] {
+  border-color: var(--color-neon-green);
+}
+
+.strength-meter {
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-deep-dark-gray);
+  user-select: none;
+}
+
+@media screen and (min-width: 640px) {
+  .strength-meter {
+    padding: 2.1rem 3.15rem 2rem 3.2rem;
+  }
+}
+
+.strength-meter__value {
+  font-size: 1.8rem;
+  line-height: 2.376rem;
+}
+
+@media screen and (min-width: 640px) {
+  .strength-meter__value {
+    font-size: 2.4rem;
+    line-height: 3.168rem;
+    transform: translateY(1.7px);
+  }
+}
+
+.strength-meter__container {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 640px) {
+  .strength-meter__container {
+    gap: 1.55rem;
+  }
+}
+
+.strength-meter__indicators {
+  display: flex;
+  gap: .8rem;
+}
+
+.strength-meter__indicator {
+  width: 1rem;
+  height: 2.8rem;
+  background-color: var(--color-deep-dark-gray);
+  border: 2px solid var(--color-light-gray);
+  transition: var(--transition) border-color, var(--transition) background-color;
+}
+
+.strength-meter__indicator.on.red {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+}
+
+.strength-meter__indicator.on.orange {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.strength-meter__indicator.on.yellow {
+  background-color: var(--color-yellow);
+  border-color: var(--color-yellow);
+}
+
+.strength-meter__indicator.on.green {
+  background-color: var(--color-neon-green);
+  border-color: var(--color-neon-green);
+}
+
+.generate-btn {
+  width: 100%;
+  gap: 1.6rem;
+  display: flex;
+  height: 5.6rem;
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+  align-items: center;
+  line-height: 2.112rem;
+  box-sizing: border-box;
+  justify-content: center;
+  border: 2px solid var(--color-neon-green);
+  background-color: var(--color-neon-green);
+  transition: var(--transition) color, var(--transition) background-color, var(--transition) gap;
+}
+
+.generate-btn svg path {
+  transition: var(--transition) fill;
+}
+
+.generate-btn:hover {
+  gap: .8rem;
+  background-color: transparent;
+  color: var(--color-light-gray);
+}
+
+.generate-btn:hover svg path {
+  fill: var(--color-light-gray);
+}
+
+@media screen and (min-width: 640px) {
+  .generate-btn {
+    font-size: 1.8rem;
+    margin-top: 3.2rem;
+    line-height: 2.376rem;
+    gap: 2.46rem;
+    height: 6.5rem;
+  }
+
+  .generate-btn:hover {
+    gap: 1.2rem;
+  }
+}
+
+/* utils */
+.t-gray {
+  color: var(--color-gray);
+}
+
+.t-light-gray {
+  color: var(--color-light-gray);
+}
