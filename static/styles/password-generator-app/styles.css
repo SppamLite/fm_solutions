@@ -99,16 +99,33 @@ input:focus {
   outline-offset: .4rem;
 }
 
-button:active {
+button:not(:disabled):active {
   transform: translateY(1px);
 }
 
 button.copy-btn svg path {
   transition: var(--transition) fill;
 }
-
-button.copy-btn:hover svg path {
+button.copy-btn:not(:disabled):hover svg path {
   fill: #fff;
+}
+button.copy-btn:disabled svg path {
+  fill: #fff;
+}
+button.copy-btn {
+  margin-top: .3rem;
+}
+
+.copy-control {
+  gap: 1.6rem;
+  display: flex;
+}
+
+.copy-control .copied {
+  color: var(--color-neon-green);
+  font-size: 1.8rem;
+  line-height: 2.376rem;
+  margin-top: .3rem;
 }
 
 .password-display {

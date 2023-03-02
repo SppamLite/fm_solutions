@@ -4,6 +4,8 @@ import { delay } from "nanodelay";
 import { JSX } from "preact";
 import { A, D, N, pipe, S } from "@mobily/ts-belt";
 import { generate, Option as PasswordGenOption } from "@wcj/generate-password";
+import copy from "copy-to-clipboard";
+
 import { PasswordDisplay } from "../components/password-generator-app/password-display.tsx";
 import { LengthSlider } from "../components/password-generator-app/length-slider.tsx";
 import { Checkbox } from "../components/password-generator-app/checkbox.tsx";
@@ -18,6 +20,7 @@ const PasswordGenerator = () => {
     numeric: true,
     special: false,
   });
+  const showCopied = useSignal<boolean>(false);
   const showWarn = useSignal<boolean>(false);
   // at least one option should be true
   const isValidConfig = computed(() =>
@@ -40,7 +43,10 @@ const PasswordGenerator = () => {
     )
   );
 
-  const onCopy = () => {};
+  const onCopy = () => {
+    copy(password.value);
+    showCopied.value = true;
+  };
 
   const onCharacterLengthChange = (
     value: string,
@@ -75,7 +81,7 @@ const PasswordGenerator = () => {
     });
   };
 
-  const dispose = effect(() => {
+  const disposeWarn = effect(() => {
     if (!showWarn.value) {
       return;
     }
@@ -83,13 +89,27 @@ const PasswordGenerator = () => {
       showWarn.value = false;
     });
   });
-  dispose();
+
+  const disposeCopy = effect(() => {
+    if (!showCopied.value) {
+      return;
+    }
+    delay(3200).then(() => {
+      showCopied.value = false;
+    });
+  });
+
+  disposeWarn();
+  disposeCopy();
+
   return (
     <div>
       <PasswordDisplay
         onCopy={onCopy}
         value={password.value}
         placeholder="P4$5W0rD!"
+        showCopied={showCopied.value}
+        copyDisabled={password.value.length === 0}
       />
       <div class="control-panel">
         <LengthSlider
