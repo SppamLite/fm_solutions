@@ -12,31 +12,24 @@ import { Checkbox } from "../components/password-generator-app/checkbox.tsx";
 import { StrengthMeter } from "../components/password-generator-app/strength-meter.tsx";
 import { Button } from "../components/Button.tsx";
 
-type Props = {
-  fixed: boolean;
-};
-
 const defaultOption: PasswordGenOption = {
-  length: 20,
   upperCase: true,
   lowerCase: true,
   numeric: true,
-  special: false,
+  special: true,
 };
 
-const initGendPassword = (fixed: boolean) =>
-  fixed ? "PTx1f5DaFXsMyB^xse4&" : generate(defaultOption);
+const initGendPassword = generate({
+  length: 20,
+  ...defaultOption
+});
 
-const PasswordGenerator = ({ fixed }: Props) => {
+const PasswordGenerator = () => {
   const controlRef = useRef<HTMLDivElement>(null);
-  const passwordGenConfig = useSignal<PasswordGenOption>({
-    upperCase: true,
-    lowerCase: true,
-    numeric: true,
-    special: false,
-  });
+  const passwordGenConfig = useSignal<PasswordGenOption>(defaultOption);
   const showCopied = useSignal<boolean>(false);
   const showWarn = useSignal<boolean>(false);
+
   // at least one option should be true
   const isValidConfig = computed(() =>
     pipe(
@@ -47,8 +40,8 @@ const PasswordGenerator = ({ fixed }: Props) => {
       N.gt(0),
     )
   );
-  const characterLength = useSignal<number>(10);
-  const gendPassword = useSignal<string>(initGendPassword(fixed));
+  const characterLength = useSignal<number>(8);
+  const gendPassword = useSignal<string>(initGendPassword);
   const password = computed<string>(() =>
     pipe(
       gendPassword.value,
@@ -162,7 +155,7 @@ const PasswordGenerator = ({ fixed }: Props) => {
             onChange={handleChangeConfig}
           />
         </div>
-        <StrengthMeter password={password.value} fixed={fixed} />
+        <StrengthMeter password={password.value} />
         <Button
           type="button"
           class="generate-btn"

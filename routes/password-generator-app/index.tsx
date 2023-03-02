@@ -1,17 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
-import type { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "$fresh/server.ts";
 import PasswordGenerator from "../../islands/password-generator.tsx";
 import { pageHeaderSuffix } from "../../utils/constants.ts";
 
-export const handler: Handlers<boolean> = {
-  GET({ url }, ctx) {
-    const { searchParams } = new URL(url);
-    const fixed = searchParams.get("fixed") || "";
-    return ctx.render(!!fixed);
-  },
-};
-
-const Home = ({ route, data: fixed }: PageProps<boolean>) => (
+const Home = ({ route }: PageProps) => (
   <>
     <Head>
       <title>Password Generator App {pageHeaderSuffix}</title>
@@ -34,7 +26,7 @@ const Home = ({ route, data: fixed }: PageProps<boolean>) => (
       <h1 class="sr-only">Password Generator</h1>
       <div class="container">
         <h2 class="t-gray heading">Password Generator</h2>
-        <PasswordGenerator fixed={fixed} />
+        <PasswordGenerator />
       </div>
     </main>
   </>
