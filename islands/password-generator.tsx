@@ -21,7 +21,7 @@ const defaultOption: PasswordGenOption = {
 
 const initGendPassword = generate({
   length: 20,
-  ...defaultOption,
+  ...defaultOption
 });
 
 const PasswordGenerator = () => {
