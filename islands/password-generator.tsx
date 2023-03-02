@@ -1,4 +1,6 @@
-import { computed, useSignal } from "@preact/signals";
+import { useRef } from "preact/hooks";
+import { computed, effect, useSignal } from "@preact/signals";
+import { delay } from "nanodelay";
 import { JSX } from "preact";
 import { A, D, N, pipe, S } from "@mobily/ts-belt";
 import { generate, Option as PasswordGenOption } from "@wcj/generate-password";
@@ -9,13 +11,24 @@ import { StrengthMeter } from "../components/password-generator-app/strength-met
 import { Button } from "../components/Button.tsx";
 
 const PasswordGenerator = () => {
+  const controlRef = useRef<HTMLDivElement>(null);
   const passwordGenConfig = useSignal<PasswordGenOption>({
     upperCase: true,
     lowerCase: true,
     numeric: true,
     special: false,
   });
-
+  const showWarn = useSignal<boolean>(false);
+  // at least one option should be true
+  const isValidConfig = computed(() =>
+    pipe(
+      passwordGenConfig.value,
+      D.filter((v) => !!v),
+      D.keys,
+      A.length,
+      N.gt(0),
+    )
+  );
   const characterLength = useSignal<number>(10);
   const gendPassword = useSignal<string>("PTx1f5DaFXsMyB^xse4&flMMi");
   const password = computed<string>(() =>
@@ -38,6 +51,9 @@ const PasswordGenerator = () => {
   const handleChangeConfig: JSX.GenericEventHandler<HTMLInputElement> = (
     { currentTarget },
   ) => {
+    if (showWarn.value) {
+      showWarn.value = false;
+    }
     const checked = currentTarget.checked;
     const id = currentTarget.id;
     if (id in passwordGenConfig.value) {
@@ -49,14 +65,8 @@ const PasswordGenerator = () => {
   };
 
   const handleGenerate = () => {
-    const isValidConfig = pipe(
-      passwordGenConfig.value,
-      D.filter((v) => !!v),
-      D.keys,
-      A.length,
-      N.gt(0),
-    ); // at least one option should be true
-    if (!isValidConfig) {
+    if (!isValidConfig.value) {
+      showWarn.value = true;
       return;
     }
     gendPassword.value = generate({
@@ -65,6 +75,15 @@ const PasswordGenerator = () => {
     });
   };
 
+  const dispose = effect(() => {
+    if (!showWarn.value) {
+      return;
+    }
+    delay(3200).then(() => {
+      showWarn.value = false;
+    });
+  });
+  dispose();
   return (
     <div>
       <PasswordDisplay
@@ -77,7 +96,12 @@ const PasswordGenerator = () => {
           onCharacterLengthChange={onCharacterLengthChange}
           value={characterLength.value}
         />
-        <div class="control-panel__password-configs">
+        <div
+          ref={controlRef}
+          class={`control-panel__password-configs ${
+            showWarn.value ? "warn horizontal-shake" : ""
+          }`}
+        >
           <Checkbox
             checked={passwordGenConfig.value.upperCase}
             id="upperCase"

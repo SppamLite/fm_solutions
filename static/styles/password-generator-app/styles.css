@@ -154,8 +154,40 @@ input[type="text"] {
 .control-panel__password-configs {
   gap: 1.6rem;
   display: flex;
-  flex-direction: column;
   margin: 3.2rem 0;
+  position: relative;
+  outline-width: 2px;
+  outline-offset: 1rem;
+  outline-style: dotted;
+  flex-direction: column;
+  outline-color: transparent;
+  transition: var(--transition) outline;
+}
+
+.control-panel__password-configs::before {
+  content: 'PICK ONE 🙄';
+  right: 0;
+  opacity: 0;
+  bottom: -2rem;
+  font-size: 1.4rem;
+  position: absolute;
+  color: var(--color-neon-green);
+  transition: var(--transition) bottom, var(--transition) opacity;
+}
+
+@media screen and (min-width: 640px) {
+  .control-panel__password-configs::before {
+    font-size: 2.4rem;
+  }
+}
+
+.control-panel__password-configs.warn {
+  outline-color: var(--color-neon-green);
+}
+
+.control-panel__password-configs.warn::before {
+  bottom: 0;
+  opacity: 1;
 }
 
 @media screen and (min-width: 640px) {
