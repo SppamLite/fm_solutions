@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef } from "preact/hooks";
+import { useRef } from "preact/hooks";
 import { JSX } from "preact";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 type Props = JSX.HTMLAttributes<HTMLInputElement> & {
   value: number;
@@ -26,15 +27,6 @@ export const LengthSlider = ({
     inputRef.current.style.setProperty("--value", inputRef.current.value);
   };
 
-  useLayoutEffect(() => {
-    if (!inputRef.current) {
-      return;
-    }
-    inputRef.current.style.setProperty("--min", initMin);
-    inputRef.current.style.setProperty("--max", initMax);
-    inputRef.current.style.setProperty("--value", initDefaultValue);
-  }, []);
-
   return (
     <div>
       <div class="length-slider">
@@ -45,6 +37,11 @@ export const LengthSlider = ({
       </div>
       <input
         {...rest}
+        style={{
+          "--min": initMin,
+          "--max": initMax,
+          "--value": initDefaultValue,
+        }}
         id="character-length"
         type="range"
         min={initMin}
@@ -54,6 +51,7 @@ export const LengthSlider = ({
         onInput={onInput}
         ref={inputRef}
         defaultValue={defaultValue}
+        disabled={!IS_BROWSER || rest.disabled}
       />
     </div>
   );
