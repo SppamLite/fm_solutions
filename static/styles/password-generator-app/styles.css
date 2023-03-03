@@ -154,6 +154,7 @@ input[type="text"] {
   width: 100%;
   border: none;
   background: none;
+  text-overflow: ellipsis;
   color: var(--color-light-gray);
 }
 
