@@ -9,10 +9,11 @@ import * as $2 from "./routes/api/joke.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $4 from "./routes/interactive-rating-component/index.tsx";
 import * as $5 from "./routes/interactive-rating-component/reset-rating.ts";
-import * as $6 from "./routes/password-generator-app/index.tsx";
-import * as $7 from "./routes/product-preview-card-component/index.tsx";
-import * as $8 from "./routes/qr-code-component/index.tsx";
-import * as $9 from "./routes/results-summary-component/index.tsx";
+import * as $6 from "./routes/nft-preview-card-component/index.tsx";
+import * as $7 from "./routes/password-generator-app/index.tsx";
+import * as $8 from "./routes/product-preview-card-component/index.tsx";
+import * as $9 from "./routes/qr-code-component/index.tsx";
+import * as $10 from "./routes/results-summary-component/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/fancy-anchor-tag.tsx";
 import * as $$2 from "./islands/interactive-rating-form.tsx";
@@ -28,10 +29,11 @@ const manifest = {
     "./routes/index.tsx": $3,
     "./routes/interactive-rating-component/index.tsx": $4,
     "./routes/interactive-rating-component/reset-rating.ts": $5,
-    "./routes/password-generator-app/index.tsx": $6,
-    "./routes/product-preview-card-component/index.tsx": $7,
-    "./routes/qr-code-component/index.tsx": $8,
-    "./routes/results-summary-component/index.tsx": $9,
+    "./routes/nft-preview-card-component/index.tsx": $6,
+    "./routes/password-generator-app/index.tsx": $7,
+    "./routes/product-preview-card-component/index.tsx": $8,
+    "./routes/qr-code-component/index.tsx": $9,
+    "./routes/results-summary-component/index.tsx": $10,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
