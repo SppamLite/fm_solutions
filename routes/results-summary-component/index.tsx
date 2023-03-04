@@ -36,7 +36,7 @@ const Home = ({ route, data: stats }: PageProps<Stat[]>) => {
   return (
     <>
       <Head>
-        <title>Results Ssummary Component {pageHeaderSuffix}</title>
+        <title>Results Summary Component {pageHeaderSuffix}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
