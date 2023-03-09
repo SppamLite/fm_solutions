@@ -19,7 +19,7 @@ const Home = ({ route }: PageProps) => (
       <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
     </Head>
-    <main>
+    <main class="animation-in">
       <section>
         <h1 class="sr-only">Order Summary Component</h1>
         <div class="hero flex">
@@ -54,7 +54,10 @@ const Home = ({ route }: PageProps) => (
             <button type="button" class="btn btn-change">Change</button>
           </div>
           <div class="actions flex flex-col items-center">
-            <button type="button" class="btn btn-process flex items-center justify-center">
+            <button
+              type="button"
+              class="btn btn-process flex items-center justify-center"
+            >
               Proceed to Payment
             </button>
             <button type="button" class="btn btn-cancel">Cancel Order</button>
