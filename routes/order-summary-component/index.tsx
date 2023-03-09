@@ -47,14 +47,14 @@ const Home = ({ route }: PageProps) => (
                 </g>
               </svg>
               <div class="flex flex-col plan-price">
-                <span>Annual Plan</span>
-                <span>$59.99/year</span>
+                <span class="plan-price__plan">Annual Plan</span>
+                <span class="plan-price__price">$59.99/year</span>
               </div>
             </div>
             <button type="button" class="btn btn-change">Change</button>
           </div>
           <div class="actions flex flex-col items-center">
-            <button type="button" class="btn btn-process">
+            <button type="button" class="btn btn-process flex items-center justify-center">
               Proceed to Payment
             </button>
             <button type="button" class="btn btn-cancel">Cancel Order</button>
