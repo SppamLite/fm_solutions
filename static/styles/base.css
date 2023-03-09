@@ -105,6 +105,10 @@ picture {
   display: inline-flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .justify-center {
   justify-content: center;
 }
