@@ -1,0 +1,68 @@
+:root {
+  --color-bright-blue: #382AE1;
+  --color-pale-blue: #D6E1FF;
+  --color-light-gray: #F7F9FF;
+  --color-gray-blue: #717FA6;
+  --color-black: #1F2E55;
+}
+
+body {
+  background-size: contain;
+  background-color: #E0E8FF;
+  background-repeat: no-repeat;
+  font-family: 'Red Hat Display', sans-serif;
+  background-image: url('/images/order-summary-component/pattern-background-mobile.svg');
+}
+
+@media screen and (min-width: 640px) {
+  body {
+    background-image: url('/images/order-summary-component/pattern-background-desktop.svg');
+  }
+}
+
+/* typography */
+h2 {
+  font-weight: 900;
+  font-size: 2.2rem;
+  text-align: center;
+  line-height: 2.911rem;
+  color: var(--color-black);
+}
+
+p {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: var(--color-gray-blue);
+}
+
+/* layout */
+main {
+  padding: 7.1rem 2.4rem 0;
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    padding-top: 10.2rem;
+  }
+}
+
+section {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 45rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  box-shadow: 0px 40px 40px -20px rgba(13, 48, 189, 0.151826);
+}
+
+.container {
+  padding: 3.2rem 2.4rem;
+}
+
+.summary {
+  border-radius: 1.1rem;
+  background-color: #F7F9FF;
+  padding: 1.7rem 1.6rem 1.6rem;
+}
