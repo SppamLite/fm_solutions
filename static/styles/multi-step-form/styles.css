@@ -1,0 +1,19 @@
+:root {
+  --color-denim: #022959;
+  --color-gray: #9699AA;
+  --color-light-gray: #D6D9E6;
+  --color-very-light-gray: #F8F9FF;
+  --color-bg: #EFF5FF;
+  --color-border-color: #D6D9E6;
+  --color-light-blue: #ABBCFF;
+  --color-sky-blue: #BEE2FD;
+  --color-orange: #FFAF7E;
+  --color-pink: #F9818E;
+  --color-purple: #483EFF;
+  --color-red: #EE374A;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--color-bg);
+}
