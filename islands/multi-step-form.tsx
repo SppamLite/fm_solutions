@@ -22,10 +22,8 @@ const MultiStepForm = () => {
       </section>
       <section class="actions">
         <div class="actions__container">
-          {step.value !== 1 && (
-            <button>Go Back</button>
-          )}
-          <button>Next Step</button>
+          {step.value !== 1 && <button>Go Back</button>}
+          <button class="next-btn">Next Step</button>
         </div>
       </section>
     </main>
