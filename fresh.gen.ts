@@ -20,9 +20,10 @@ import * as $13 from "./routes/results-summary-component/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/fancy-anchor-tag.tsx";
 import * as $$2 from "./islands/interactive-rating-form.tsx";
-import * as $$3 from "./islands/password-generator.tsx";
-import * as $$4 from "./islands/product-preview-cart-button.tsx";
-import * as $$5 from "./islands/qr-code-generator.tsx";
+import * as $$3 from "./islands/multi-step-form.tsx";
+import * as $$4 from "./islands/password-generator.tsx";
+import * as $$5 from "./islands/product-preview-cart-button.tsx";
+import * as $$6 from "./islands/qr-code-generator.tsx";
 
 const manifest = {
   routes: {
@@ -45,9 +46,10 @@ const manifest = {
     "./islands/Counter.tsx": $$0,
     "./islands/fancy-anchor-tag.tsx": $$1,
     "./islands/interactive-rating-form.tsx": $$2,
-    "./islands/password-generator.tsx": $$3,
-    "./islands/product-preview-cart-button.tsx": $$4,
-    "./islands/qr-code-generator.tsx": $$5,
+    "./islands/multi-step-form.tsx": $$3,
+    "./islands/password-generator.tsx": $$4,
+    "./islands/product-preview-cart-button.tsx": $$5,
+    "./islands/qr-code-generator.tsx": $$6,
   },
   baseUrl: import.meta.url,
   config,

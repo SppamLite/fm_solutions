@@ -11,9 +11,141 @@
   --color-pink: #F9818E;
   --color-purple: #483EFF;
   --color-red: #EE374A;
+  --showdow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
 }
 
 body {
   font-family: 'Ubuntu', sans-serif;
   background-color: var(--color-bg);
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    padding: 0 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+@media screen and (min-width: 700px) {
+  main {
+    max-width: 94rem;
+    background: #fff;
+    box-shadow: var(--showdow);
+    border-radius: 1.5rem;
+    position: static;
+    display: grid;
+    height: auto;
+    padding: 1.6rem;
+    grid-template-columns: minmax(20rem, 27.4rem) minmax(40rem, auto);
+    height: 60rem;
+  }
+}
+
+/* components */
+.step-nav {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/images/multi-step-form/bg-sidebar-mobile.svg');
+  height: 45.867vw;
+  max-height: 23rem;
+}
+
+@media screen and (min-width: 700px) {
+  .step-nav {
+    max-height: none;
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    height: 100%;
+    border-radius: 1rem;
+    background-image: url('/images/multi-step-form/bg-sidebar-desktop.svg');
+  }
+}
+
+.step-nav__container {
+  gap: 1.6rem;
+  max-width: 18rem;
+  margin: 0 auto;
+  padding-top: 3.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .step-nav__container {
+    gap: 3.2rem;
+    padding-top: 4rem;
+    flex-direction: column;
+    max-width: 16rem;
+  }
+}
+
+.nav-btn {
+  width: 3.3rem;
+  height: 3.3rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border: 1px solid #fff;
+}
+
+.steps {
+  padding: 0 1.6rem;
+  position: absolute;
+  top: 9.9rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .steps {
+    position: static;
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+}
+
+.steps__container {
+  background-color: #fff;
+  box-shadow: var(--showdow);
+  border-radius: 10px;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 700px) {
+  .steps__container {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 45rem;
+  }
+}
+
+.actions {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 7.2rem;
+  position: absolute;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 700px) {
+  .actions {
+    position: static;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding: 0 1.6rem;
+  }
+
+  .actions__container {
+    max-width: 45rem;
+    margin: 0 auto;
+    width: 100%;
+  }
 }

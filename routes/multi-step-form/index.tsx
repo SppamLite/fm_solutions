@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import type { PageProps } from "$fresh/server.ts";
+import MultiStepForm from "../../islands/multi-step-form.tsx";
 import { pageHeaderSuffix } from "../../utils/constants.ts";
 
 const Home = ({ route }: PageProps) => (
@@ -19,9 +20,8 @@ const Home = ({ route }: PageProps) => (
       <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
     </Head>
-    <main>
-    </main>
+    <MultiStepForm />
   </>
-)
+);
 
 export default Home;
