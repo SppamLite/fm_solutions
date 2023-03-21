@@ -5,12 +5,14 @@ import { AddOnsForm } from "../components/multi-step-form/add-ons-form.tsx";
 import { StepNav } from "../components/multi-step-form/step-nav.tsx";
 
 const MultiStepForm = () => {
-  const step = useSignal<number>(1);
-  const onNav = (step: number) => console.log("nav", step);
+  const currentStep = useSignal<number>(1);
+  const onNav = (step: number) => currentStep.value = step;
+  const onClickNext = () => currentStep.value += 1;
+  const onClickBack = () => currentStep.value -= 1;
 
   return (
     <main>
-      <StepNav onNav={onNav} />
+      <StepNav onNav={onNav} currentStep={currentStep.value} />
       <section class="steps">
         <div class="steps__container">
           <PersonalInfoForm />
@@ -21,9 +23,33 @@ const MultiStepForm = () => {
         </div>
       </section>
       <section class="actions">
-        <div class="actions__container">
-          {step.value !== 1 && <button>Go Back</button>}
-          <button class="next-btn">Next Step</button>
+        <div class="actions__container flex items-center">
+          {currentStep.value !== 1 && (
+            <button
+              type="button"
+              class="back-btn t-gray animation-in"
+              onClick={onClickBack}
+            >
+              Go Back
+            </button>
+          )}
+          {currentStep.value < 4 && (
+            <button
+              class="next-btn inline-flex items-center justify-center t-white"
+              type="button"
+              onClick={onClickNext}
+            >
+              Next Step
+            </button>
+          )}
+          {currentStep.value === 4 && (
+            <button
+              class="confirm-btn inline-flex items-center justify-center t-white"
+              type="button"
+            >
+              Confirm
+            </button>
+          )}
         </div>
       </section>
     </main>
