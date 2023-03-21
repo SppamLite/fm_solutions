@@ -202,6 +202,15 @@ button:active {
   width: 12.3rem;
 }
 
+.back-btn,
+.next-btn,
+.confirm-btn {
+  animation-duration: 0.3s, 0.3s;
+  animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1),
+    cubic-bezier(0, 0, 1, 1);
+  animation-name: contentSlideIn, contentFadeIn;
+}
+
 .back-btn {}
 
 .next-btn {
