@@ -13,15 +13,15 @@ const MultiStepForm = () => {
   const onClickConfirm = () => console.log("confirm");
 
   return (
-    <main>
+    <main class="animation-in">
       <StepNav onNav={onNav} currentStep={currentStep.value} />
       <section class="steps">
         <div class="steps__container">
-          <PersonalInfoForm />
-          <PlanForm />
-          <AddOnsForm />
-          <div>Summary</div>
-          <div>Thank you!</div>
+          {currentStep.value === 1 && <PersonalInfoForm />}
+          {currentStep.value === 2 && <PlanForm />}
+          {currentStep.value === 3 && <AddOnsForm />}
+          {currentStep.value === 4 && <div>Summary</div>}
+          {currentStep.value === 5 && <div>Thank you!</div>}
         </div>
       </section>
       <Actions
