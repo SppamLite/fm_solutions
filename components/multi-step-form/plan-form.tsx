@@ -6,7 +6,7 @@ export type Props = {
 };
 
 export const PlanForm = ({ yearly, onCycleChange }: Props) => (
-  <div>
+  <div class="animation-in">
     <h2 class="t-denim form-title">Select your plan</h2>
     <p class="t-gray">
       You have the option of monthly or yearly billing.
