@@ -353,6 +353,68 @@ input {
   margin-left: auto;
 }
 
+/*
+  toggle switch copied from codepen:
+  https://codepen.io/mburnette/pen/LxNxNg
+*/
+.toggle-switch input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.toggle-switch label {
+  cursor: pointer;
+  user-select: none;
+  text-indent: -9999px;
+  width: 3.8rem;
+  height: 2rem;
+  background-color: var(--color-denim);
+  display: block;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.toggle-switch label:after {
+  content: '';
+  position: absolute;
+  top: .4rem;
+  left: .4rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-switch input:checked+label {
+  background-color: var(--color-denim);
+}
+
+.toggle-switch input:checked+label:after {
+  left: calc(100% - .4rem);
+  transform: translateX(-100%);
+}
+
+.toggle-switch label:active:after {
+  width: 1.8rem;
+}
+
+.bill-cycle {
+  gap: 2.4rem;
+  height: 4.8rem;
+  border-radius: .8rem;
+  background-color: var(--color-very-light-gray);
+}
+
+.bill-cycle .monthly,
+.bill-cycle .yearly {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  transition: var(--transition) color;
+}
+
 /* utils */
 .t-heading {}
 
