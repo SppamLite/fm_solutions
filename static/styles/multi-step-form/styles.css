@@ -433,7 +433,8 @@ input {
   }
 }
 
-.plans label {
+.plans label,
+.addons label {
   cursor: pointer;
   position: relative;
   flex-grow: 1;
@@ -445,18 +446,28 @@ input {
   }
 }
 
-.plans input {
+.plans input,
+.addons input {
   position: absolute;
   visibility: hidden;
 }
 
+.addon,
 .plan__detail {
-  height: 7.7rem;
   border-radius: .8rem;
-  padding-left: 1.6rem;
-  padding-top: 1.4rem;
   border: 1px solid var(--color-light-gray);
   transition: var(--transition) border-color, var(--transition) background-color;
+}
+
+.addon:hover,
+.plan__detail:hover {
+  border-color: var(--color-purple);
+}
+
+.plan__detail {
+  height: 7.7rem;
+  padding-left: 1.6rem;
+  padding-top: 1.4rem;
   display: flex;
   gap: 1.4rem;
   align-items: center;
@@ -474,7 +485,8 @@ input {
   }
 }
 
-.plan__detail.selected {
+.plan__detail.selected,
+.addon.checked {
   border-color: var(--color-purple);
   background-color: var(--color-very-light-gray)
 }
@@ -496,6 +508,86 @@ input {
   margin-top: .6rem;
   font-size: 1.2rem;
   line-height: 1.4rem;
+}
+
+.addons {
+  gap: 1.2rem;
+  margin-top: 2.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .addons {
+    gap: 1.6rem;
+    margin-top: 4rem;
+  }
+}
+
+.addon {
+  height: 6rem;
+  padding: 0 1.6rem;
+  user-select: none;
+}
+
+@media screen and (min-width: 700px) {
+  .addon {
+    height: 7.9rem;
+    padding: 0 2.4rem;
+  }
+}
+
+.addon .box {
+  width: 2rem;
+  height: 2rem;
+  border-radius: .4rem;
+  border: 1px solid var(--color-light-gray);
+  transition: 200ms ease border-color, 200ms ease background-color;
+}
+
+.addon .box svg {
+  animation: checkmark 700ms cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.addon.checked .box {
+  border-color: var(--color-purple);
+  background-color: var(--color-purple);
+}
+
+.addon__detail {
+  margin-left: 1.6rem;
+}
+
+.addon__name {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  margin-bottom: .3rem;
+}
+
+@media screen and (min-width: 700px) {
+  .addon__name {
+    margin-bottom: .7rem;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+}
+
+.addon__description,
+.addon__price {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+
+  .addon__description,
+  .addon__price {
+    font-size: 1.4rem;
+  }
+}
+
+.addon__price {
+  margin-left: auto;
 }
 
 /* utils */
@@ -525,4 +617,21 @@ input {
 
 .t-denim {
   color: var(--color-denim);
+}
+
+.t-purple {
+  color: var(--color-purple);
+}
+
+/* keyframes */
+@keyframes checkmark {
+  from {
+    opacity: 0.4;
+    transform: rotate(30deg) translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0) translateY(0);
+  }
 }
