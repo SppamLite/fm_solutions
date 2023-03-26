@@ -1,11 +1,17 @@
 import { JSX } from "preact";
-import { useSignal } from "@preact/signals";
+import { computed, useSignal } from "@preact/signals";
 import { PersonalInfoForm } from "../components/multi-step-form/personal-info-form.tsx";
 import { PlanForm } from "../components/multi-step-form/plan-form.tsx";
 import { AddOnsForm } from "../components/multi-step-form/add-ons-form.tsx";
 import { StepNav } from "../components/multi-step-form/step-nav.tsx";
 import { Actions } from "../components/multi-step-form/actions.tsx";
-import { AddOn, Plan } from "../components/multi-step-form/price-lookup.ts";
+import {
+  AddOn,
+  addons,
+  Plan,
+  plans,
+} from "../components/multi-step-form/price-lookup.ts";
+import { Summary } from "../components/multi-step-form/summary.tsx";
 
 type ChangeHandler = JSX.GenericEventHandler<HTMLInputElement>;
 
@@ -14,11 +20,27 @@ const MultiStepForm = () => {
   const yearly = useSignal<boolean>(false);
   const selectedPlan = useSignal<Plan>("Arcade");
   const selectedAddons = useSignal<AddOn[]>([]);
+  const total = computed(() => {
+    const planCost = yearly.value
+      ? plans[selectedPlan.value].yearlyPrice
+      : plans[selectedPlan.value].monthlyPrice;
+    const addonsCost = selectedAddons.value.reduce((acc, curr) => {
+      const addonCost = yearly.value
+        ? addons[curr].yearlyPrice
+        : addons[curr].monthlyPrice;
+      acc += addonCost;
+      return acc;
+    }, 0);
+    return planCost + addonsCost;
+  });
+  // form steps
   const onNav = (step: number) => currentStep.value = step;
   const onClickNext = () => currentStep.value += 1;
   const onClickBack = () => currentStep.value -= 1;
+  const onClickChange = () => currentStep.value = 2;
   const onClickConfirm = () => console.log("confirm");
 
+  // form control groups
   const onCycleChange: ChangeHandler = (
     { currentTarget },
   ) => yearly.value = currentTarget.checked;
@@ -61,7 +83,15 @@ const MultiStepForm = () => {
               onChangeAddon={onChangeAddon}
             />
           )}
-          {currentStep.value === 4 && <div>Summary</div>}
+          {currentStep.value === 4 && (
+            <Summary
+              yearly={yearly.value}
+              selectedPlan={selectedPlan.value}
+              selectedAddons={selectedAddons.value}
+              onClickChange={onClickChange}
+              total={total.value}
+            />
+          )}
           {currentStep.value === 5 && <div>Thank you!</div>}
         </div>
       </section>

@@ -56,7 +56,7 @@ export const AddOnsForm = ({
                 </span>
               </div>
               <div class="addon__price t-purple">
-                {yearly
+                +${yearly
                   ? addons[addon].yearlyPrice
                   : addons[addon].monthlyPrice}/{yearly ? "yr" : "mo"}
               </div>

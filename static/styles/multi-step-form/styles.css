@@ -266,8 +266,6 @@ button:active {
   animation-name: contentSlideIn, contentFadeIn;
 }
 
-.back-btn {}
-
 .next-btn {
   margin-left: auto;
   background-color: var(--color-denim);
@@ -465,9 +463,9 @@ input {
 }
 
 .plan__detail {
-  height: 7.7rem;
   padding-left: 1.6rem;
   padding-top: 1.4rem;
+  padding-bottom: 1.7rem;
   display: flex;
   gap: 1.4rem;
   align-items: center;
@@ -590,13 +588,132 @@ input {
   margin-left: auto;
 }
 
+.summary {
+  margin-top: 2.2rem;
+  border-radius: .8rem;
+  background-color: var(--color-very-light-gray);
+}
+
+@media screen and (min-width: 700px) {
+  .summary {
+    margin-top: 4rem;
+  }
+}
+
+.summary__plan,
+.summary__addons {
+  padding: 0 1.6rem;
+}
+
+@media screen and (min-width: 700px) {
+
+  .summary__plan,
+  .summary__addons {
+    padding: 0 2.4rem;
+  }
+}
+
+.summary__plan {
+  padding-top: 1.6rem;
+  padding-bottom: 1.1rem;
+}
+
+@media screen and (min-width: 700px) {
+  .summary__plan {
+    padding-bottom: 2.3rem;
+  }
+}
+
+.summary__plan button {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.summary__plan button:hover {
+  color: var(--color-purple);
+}
+
+.summary__addons {
+  padding-bottom: 1.6rem;
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .summary__addons {
+    gap: 1.6rem;
+    padding-bottom: 2.4rem;
+  }
+}
+
+.summary__addons::before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  display: block;
+  opacity: .2;
+  background-color: var(--color-gray);
+}
+
+.summary__plan__name {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  margin-bottom: .3rem;
+}
+
+@media screen and (min-width: 700px) {
+  .summary__plan__name {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    margin-bottom: .7rem;
+  }
+}
+
+.summary__plan__price {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .summary__plan__price {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+}
+
+.summary__addon span {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.total {
+  padding: 0 1.6rem;
+  margin-top: 2.4rem;
+}
+
+@media screen and (min-width: 700px) {
+  .total {
+    padding: 0 2.4rem;
+  }
+}
+
+.total .name {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.total .price {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
 /* utils */
-.t-heading {}
-
-.t-body-l {}
-
-.t-body-m {}
-
 .t-body-s {
   font-weight: 400;
   font-size: 1.2rem;
