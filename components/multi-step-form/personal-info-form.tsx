@@ -6,12 +6,14 @@ type Props = {
   onInputChange: JSX.GenericEventHandler<HTMLInputElement>;
   personalInfo: PersonalInfo;
   errors: PersonalInfoError;
+  disabled: boolean;
 };
 
 export const PersonalInfoForm = ({
   onInputChange,
   personalInfo,
   errors,
+  disabled,
 }: Props) => (
   <div class="animation-in">
     <h2 class="t-denim form-title">Personal info</h2>
@@ -27,6 +29,7 @@ export const PersonalInfoForm = ({
         onChange={onInputChange}
         value={personalInfo.name}
         error={errors["name"]}
+        disabled={disabled}
       />
       <TextInput
         label="Email Address"
@@ -36,6 +39,7 @@ export const PersonalInfoForm = ({
         onChange={onInputChange}
         value={personalInfo.email}
         error={errors["email"]}
+        disabled={disabled}
       />
       <TextInput
         label="Phone Number"
@@ -45,6 +49,7 @@ export const PersonalInfoForm = ({
         onChange={onInputChange}
         value={personalInfo.phone}
         error={errors["phone"]}
+        disabled={disabled}
       />
     </form>
   </div>

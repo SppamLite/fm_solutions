@@ -3,6 +3,7 @@ type Props = {
   onClickBack(): void;
   onClickNext(): void;
   onClickConfirm(): void;
+  isLoading: boolean;
 };
 
 export const Actions = ({
@@ -10,6 +11,7 @@ export const Actions = ({
   onClickBack,
   onClickNext,
   onClickConfirm,
+  isLoading,
 }: Props) => (
   <section class="actions">
     <div class="actions__container flex items-center">
@@ -28,7 +30,7 @@ export const Actions = ({
           type="button"
           onClick={onClickNext}
         >
-          Next Step
+          {isLoading ? "Loading" : "Next Step"}
         </button>
       )}
       {currentStep === 4 && (

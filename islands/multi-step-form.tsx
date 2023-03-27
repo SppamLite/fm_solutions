@@ -1,6 +1,6 @@
 import { JSX } from "preact";
-import { ZodError } from "zod";
-import { computed, effect, useSignal } from "@preact/signals";
+import { computed, useSignal } from "@preact/signals";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 import { PersonalInfoForm } from "../components/multi-step-form/personal-info-form.tsx";
 import { PlanForm } from "../components/multi-step-form/plan-form.tsx";
@@ -15,10 +15,9 @@ import {
 } from "../components/multi-step-form/price-lookup.ts";
 import { Summary } from "../components/multi-step-form/summary.tsx";
 import {
-  initError,
+  getValidationError,
   PersonalInfo,
   PersonalInfoError,
-  schema,
 } from "../components/multi-step-form/personal-info.ts";
 
 type ChangeHandler = JSX.GenericEventHandler<HTMLInputElement>;
@@ -27,6 +26,7 @@ const MultiStepForm = () => {
   // signals
   const currentStep = useSignal<number>(1);
   const yearly = useSignal<boolean>(false);
+  const isValidInfo = useSignal<boolean>(false);
   const selectedPlan = useSignal<Plan>("Arcade");
   const selectedAddons = useSignal<AddOn[]>([]);
   const personalInfo = useSignal<PersonalInfo>({
@@ -34,7 +34,8 @@ const MultiStepForm = () => {
     email: "",
     phone: "",
   });
-  const personalInfoError = useSignal<PersonalInfoError>(initError);
+
+  const personalInfoError = useSignal<PersonalInfoError>({});
 
   const total = computed(() => {
     const planCost = yearly.value
@@ -51,7 +52,6 @@ const MultiStepForm = () => {
   });
 
   // form steps
-  const onNav = (step: number) => currentStep.value = step;
   const onClickBack = () => currentStep.value -= 1;
   const onClickChange = () => currentStep.value = 2;
   const onClickConfirm = () => console.log("confirm");
@@ -93,32 +93,27 @@ const MultiStepForm = () => {
     }
   };
 
-  const onClickNext = () => {
+  const changeStep = (step?: number) => {
     if (currentStep.value !== 1) {
-      currentStep.value += 1;
+      currentStep.value = step || (currentStep.value + 1);
+      return;
     }
-    try {
-      schema.parse(personalInfo.value);
-      currentStep.value += 1;
-    } catch (error) {
-      if (error instanceof ZodError<PersonalInfo>) {
-        const validationError = error.issues.reduce(
-          (acc: PersonalInfoError, issue) => {
-            const issuePath = issue.path.join();
-            acc[issuePath] = issue.message;
-            return acc;
-          },
-          initError,
-        );
-        personalInfoError.value = {
-          ...personalInfoError.value,
-          ...validationError,
-        };
-      } else {
-        console.error("unknown error at step 1", error);
-      }
+    const error = getValidationError(personalInfo.value);
+    if (!error) {
+      currentStep.value = step || (currentStep.value + 1);
+      isValidInfo.value = true;
+      personalInfoError.value = {};
+    } else {
+      isValidInfo.value = false;
+      personalInfoError.value = {
+        ...personalInfoError.value,
+        ...error,
+      };
     }
   };
+
+  const onClickNext = () => changeStep();
+  const onNav = (step: number) => changeStep(step);
 
   return (
     <main class="animation-in">
@@ -130,6 +125,7 @@ const MultiStepForm = () => {
               onInputChange={onInputChange}
               personalInfo={personalInfo.value}
               errors={personalInfoError.value}
+              disabled={!IS_BROWSER}
             />
           )}
           {currentStep.value === 2 && (
@@ -164,6 +160,7 @@ const MultiStepForm = () => {
         onClickBack={onClickBack}
         currentStep={currentStep.value}
         onClickConfirm={onClickConfirm}
+        isLoading={!IS_BROWSER}
       />
     </main>
   );
