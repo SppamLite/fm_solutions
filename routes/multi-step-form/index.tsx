@@ -20,6 +20,7 @@ const Home = ({ route }: PageProps) => (
       <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
     </Head>
+    <h1 class="sr-only">ulti Step Form</h1>
     <MultiStepForm />
   </>
 );
