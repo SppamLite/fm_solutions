@@ -117,6 +117,7 @@ const MultiStepForm = () => {
 
   return (
     <main class="animation-in">
+      <h1 class="sr-only">Multi Step Form</h1>
       <StepNav onNav={onNav} currentStep={currentStep.value} />
       <section class="steps">
         <h2 class="sr-only">Form Steps</h2>
