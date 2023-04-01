@@ -1,15 +1,32 @@
 import { Head } from "$fresh/runtime.ts";
 import type { Handlers, PageProps } from "$fresh/server.ts";
-import { loadSolutions } from "../utils/functions.ts";
+import {
+  HomeData,
+  loadFMSolutions,
+  loadLocalSolutions,
+} from "../utils/home-functions.ts";
 
-export const handler: Handlers<string[]> = {
+export const handler: Handlers<HomeData> = {
   async GET(_req, ctx) {
-    const solutions = await loadSolutions();
-    return ctx.render(solutions);
+    const fmSolutions = await loadFMSolutions();
+    if (fmSolutions) {
+      return ctx.render({
+        isBackup: false,
+        solutions: fmSolutions,
+        backupSolutions: [],
+      });
+    }
+    const backupSolutions = await loadLocalSolutions();
+    return ctx.render({
+      isBackup: true,
+      solutions: [],
+      backupSolutions,
+    });
   },
 };
 
-export default function Home({ data: solutions }: PageProps<string[]>) {
+export default function Home({ data }: PageProps<HomeData>) {
+  const { isBackup, backupSolutions, solutions } = data;
   return (
     <>
       <Head>
@@ -42,12 +59,28 @@ export default function Home({ data: solutions }: PageProps<string[]>) {
             Frontend Mentor
           </a>{" "}
           challenges solutions:
-          <ul>
-            {solutions.map((solution) => (
-              <li>
-                <a href={`/${solution}`}>{solution}</a>
-              </li>
-            ))}
+          <ul class={isBackup ? "backup" : "solutions"}>
+            {isBackup
+              ? (
+                backupSolutions.map((solution, index) => (
+                  <li key={index}>
+                    <a href={`/${solution}`}>{solution}</a>
+                  </li>
+                ))
+              )
+              : (
+                solutions.map((solution) => (
+                  <li key={solution.id} class="solution">
+                    <a href={solution.liveURL}>
+                      {solution.title}
+                      <img
+                        src={solution.screenshot}
+                        alt="solution screenshot"
+                      />
+                    </a>
+                  </li>
+                ))
+              )}
           </ul>
           <div>
             <a href="https://github.com/SppamLite/fm_solutions" target="_blank">

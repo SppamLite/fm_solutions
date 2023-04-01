@@ -2,7 +2,7 @@ import { Head } from "$fresh/runtime.ts";
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import QrCodeGenerator from "../../islands/qr-code-generator.tsx";
 import { pageHeaderSuffix } from "../../utils/constants.ts";
-import { loadSolutions } from "../../utils/functions.ts";
+import { loadLocalSolutions } from "../../utils/home-functions.ts";
 
 type Data = {
   urls: string[];
@@ -13,7 +13,7 @@ export const handler: Handlers<Data> = {
   async GET({ url }, ctx) {
     const { hostname, searchParams } = new URL(url);
     const query = searchParams.get("qr") || "";
-    const solutions = await loadSolutions();
+    const solutions = await loadLocalSolutions();
     const urls = [
       "https://www.frontendmentor.io/",
       ...solutions.map((s) => `https://${hostname}/${s}`),
