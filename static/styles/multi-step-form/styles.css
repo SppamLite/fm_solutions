@@ -274,9 +274,21 @@ button:active {
   background-color: var(--color-denim);
 }
 
+.next-btn:hover {
+  background-color: #164A8A;
+}
+
+.back-btn:hover {
+  color: var(--color-denim);
+}
+
 .confirm-btn {
   margin-left: auto;
   background-color: var(--color-purple);
+}
+
+.confirm-btn:hover {
+  background-color: #928CFF;
 }
 
 .text-input label,
