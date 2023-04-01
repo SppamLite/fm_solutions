@@ -18,6 +18,7 @@ export const TextInput = ({
     </div>
     <input
       name={name}
+      id={name}
       type="text"
       class={`${error ? "error" : ""}`}
       {...rest}

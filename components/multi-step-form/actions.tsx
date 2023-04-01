@@ -14,6 +14,7 @@ export const Actions = ({
   isLoading,
 }: Props) => (
   <section class="actions">
+    <h2 class="sr-only">action buttons</h2>
     <div class="actions__container flex items-center">
       {currentStep > 1 && currentStep < 5 && (
         <button

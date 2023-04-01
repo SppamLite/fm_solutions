@@ -119,6 +119,7 @@ const MultiStepForm = () => {
     <main class="animation-in">
       <StepNav onNav={onNav} currentStep={currentStep.value} />
       <section class="steps">
+        <h2 class="sr-only">Form Steps</h2>
         <div class="steps__container">
           {currentStep.value === 1 && (
             <PersonalInfoForm
