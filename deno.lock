@@ -131,6 +131,7 @@
     "https://esm.sh/preact@10.11.0/jsx-runtime": "5c123264f19799ab243211132dded45f6d42d594b5c78dd585f947d07bf20eae",
     "https://esm.sh/react-tooltip@5.8.1": "a17134fa19817fb6acf699ddeb491a7fff4f080e968c13de94027f4b0b08bd66",
     "https://esm.sh/stable/preact@10.11.0/deno/hooks.js": "48b7674c1f0c2a0f8a0f758b786f5bc15ba0f7a4f3a356ecc783848f1e4a1c55",
+    "https://esm.sh/stable/preact@10.11.0/deno/hooks/src/index.js": "912138040af8c091d91e716c34eaeb63af6e752cfccb5bfbaea8dba8a4fa24ae",
     "https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js": "b5a8e96758c20b5dea05802c6f6962b8a95bfdbd476eb4ea51cf3234f6e09271",
     "https://esm.sh/stable/preact@10.11.0/deno/preact.js": "071b515099e5dff2fe56768be62644e32fab702b194171357ccc4d7d1210144a",
     "https://esm.sh/stable/react@18.2.0/deno/react.js": "0113c672572d23a90490f1b03731866a18bbbfe2ab4ff8e52c2e91b60c4188f0",
@@ -164,6 +165,7 @@
     "https://esm.sh/v106/csstype@3.1.1/index.d.ts": "1c29793071152b207c01ea1954e343be9a44d85234447b2b236acae9e709a383",
     "https://esm.sh/v106/preact-render-to-string@5.2.4/X-ZS8q/deno/preact-render-to-string.js": "75aad97b00d5ad63383de7f729a3f1fea59e69a9b876db5551d9c746ed372f82",
     "https://esm.sh/v106/preact-render-to-string@5.2.4/X-ZS8q/src/index.d.ts": "b1d73703252c8570fdf2952475805f5808ba3511fefbd93a3e7bd8406de7dcd0",
+    "https://esm.sh/v106/preact@10.11.0/hooks/src/index": "bc4919811fa088094933030b63e2d77c7b38112576be4736034ac0277e77e0a3",
     "https://esm.sh/v106/preact@10.11.0/hooks/src/index.d.ts": "5c29febb624fc25d71cb0e125848c9b711e233337a08f7eacfade38fd4c14cc3",
     "https://esm.sh/v106/preact@10.11.0/jsx-runtime/src/index.d.ts": "e153460ed2b3fe2ad8b93696ecd48fbf73cd628b0b0ea6692b71804a3af69dfd",
     "https://esm.sh/v106/preact@10.11.0/src/index.d.ts": "1a5c331227be54be6515b0c92a469d352834fa413963ae84a39a05a3177111f6",
@@ -193,6 +195,21 @@
     "https://esm.sh/v110/copy-to-clipboard@3.3.3/index.d.ts": "2c8381a3a5a1663aa1723b31f3718dda9a359ad8eef9342b79f553de106b7ead",
     "https://esm.sh/v110/nanodelay@2.0.2/deno/nanodelay.js": "c4b02b2763a05e794a79645c7b88c18d7a2e60e08e9c8457602a08c2e39fb20c",
     "https://esm.sh/v110/nanodelay@2.0.2/index.d.ts": "08ec5c2488fef585cef432997a0d4f5296b058fc4e5e68c7a7bdd8d248a2f0e2",
-    "https://esm.sh/v110/toggle-selection@1.0.6/deno/toggle-selection.js": "4b5012e1b9e8b4087ecd91e97bad05fe01ab17e609eae2a6e2078f6578fdc255"
+    "https://esm.sh/v110/toggle-selection@1.0.6/deno/toggle-selection.js": "4b5012e1b9e8b4087ecd91e97bad05fe01ab17e609eae2a6e2078f6578fdc255",
+    "https://esm.sh/v113/zod@3.21.4/deno/zod.mjs": "652b3e1f40b7dbb5b32d5c4d4fc7f1cbe06b0cf87c16cb7cd0c62f8ce9457406",
+    "https://esm.sh/v113/zod@3.21.4/index.d.ts": "b51c954b9557b1dcb03b2bf34cd136e710cb9aa276e686cac0e291249590a52a",
+    "https://esm.sh/v113/zod@3.21.4/lib/ZodError.d.ts": "1f19511459549a66526d9dcc3b2288e59fa5fd4cf42b390a945d0bdc289806df",
+    "https://esm.sh/v113/zod@3.21.4/lib/errors.d.ts": "5ec2790f877581637c058eb5bbb72e855a078620d0781d2a6a8f308fe1d5436f",
+    "https://esm.sh/v113/zod@3.21.4/lib/external.d.ts": "91cec2fe1e1fb2574812a29a57ad2c39a1e69b0fa1179547382c92649fc5c66e",
+    "https://esm.sh/v113/zod@3.21.4/lib/helpers/enumUtil.d.ts": "f672c876c1a04a223cf2023b3d91e8a52bb1544c576b81bf64a8fec82be9969c",
+    "https://esm.sh/v113/zod@3.21.4/lib/helpers/errorUtil.d.ts": "98a9cc18f661d28e6bd31c436e1984f3980f35e0f0aa9cf795c54f8ccb667ffe",
+    "https://esm.sh/v113/zod@3.21.4/lib/helpers/parseUtil.d.ts": "d3dbfc2f2fbf2c1bdea72db72f9f5c95d2ca5b4d32c9e229764ebaba0920203c",
+    "https://esm.sh/v113/zod@3.21.4/lib/helpers/partialUtil.d.ts": "be2da97df422506d54e0e1727a40f6315c7311931b65a552b3172148db734c43",
+    "https://esm.sh/v113/zod@3.21.4/lib/helpers/typeAliases.d.ts": "5487b97cfa28b26b4a9ef0770f872bdbebd4c46124858de00f242c3eed7519f4",
+    "https://esm.sh/v113/zod@3.21.4/lib/helpers/util.d.ts": "7a01f546ace66019156e4232a1bee2fabc2f8eabeb052473d926ee1693956265",
+    "https://esm.sh/v113/zod@3.21.4/lib/index.d.ts": "e6e0b04af1500398c8840582cce03d8907d6475005eb490f0e07bb33db6da66c",
+    "https://esm.sh/v113/zod@3.21.4/lib/locales/en.d.ts": "f8ec1611afb8d132c6c71822718805866890cf2071025153af97508eff24e4b6",
+    "https://esm.sh/v113/zod@3.21.4/lib/types.d.ts": "d7eecca2a9e02b2b2f51eaef95956f490a5780d03b32b9865068a63a26810f01",
+    "https://esm.sh/zod@3.21.4": "48e7e3ab8c7f82327460be3b454f97475960271dda2d8de546694a8b81c45512"
   }
 }
