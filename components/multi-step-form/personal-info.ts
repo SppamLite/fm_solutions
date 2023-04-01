@@ -3,7 +3,13 @@ import { z, ZodError } from "zod";
 export const schema = z.object({
   name: z.string().min(2, { message: "Name should have at least 2 letters" }),
   email: z.string().email({ message: "Invalid email" }),
-  phone: z.string().nonempty({ message: "Phone number should not be empty" }),
+  phone: z.string().nonempty({ message: "Phone number should not be empty" })
+    .refine(
+      (phoneNumber) =>
+        /(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g
+          .test(phoneNumber),
+      { message: "Invalid phone number" },
+    ),
 });
 
 export type PersonalInfo = z.infer<typeof schema>;

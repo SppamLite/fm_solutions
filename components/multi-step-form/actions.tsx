@@ -15,7 +15,7 @@ export const Actions = ({
 }: Props) => (
   <section class="actions">
     <div class="actions__container flex items-center">
-      {currentStep !== 1 && (
+      {currentStep > 1 && currentStep < 5 && (
         <button
           type="button"
           class="back-btn t-gray"

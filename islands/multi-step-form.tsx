@@ -19,6 +19,7 @@ import {
   PersonalInfo,
   PersonalInfoError,
 } from "../components/multi-step-form/personal-info.ts";
+import { ThankYou } from "../components/multi-step-form/thank-you.tsx";
 
 type ChangeHandler = JSX.GenericEventHandler<HTMLInputElement>;
 
@@ -54,7 +55,6 @@ const MultiStepForm = () => {
   // form steps
   const onClickBack = () => currentStep.value -= 1;
   const onClickChange = () => currentStep.value = 2;
-  const onClickConfirm = () => console.log("confirm");
 
   // form control groups
   const onCycleChange: ChangeHandler = (
@@ -152,14 +152,14 @@ const MultiStepForm = () => {
               total={total.value}
             />
           )}
-          {currentStep.value === 5 && <div>Thank you!</div>}
+          {currentStep.value === 5 && <ThankYou />}
         </div>
       </section>
       <Actions
         onClickNext={onClickNext}
         onClickBack={onClickBack}
         currentStep={currentStep.value}
-        onClickConfirm={onClickConfirm}
+        onClickConfirm={onClickNext}
         isLoading={!IS_BROWSER}
       />
     </main>
