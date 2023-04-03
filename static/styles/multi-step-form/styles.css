@@ -29,6 +29,9 @@ main {
   height: 100vh;
   height: 100svh;
   position: relative;
+}
+
+main.adjusted {
   min-height: 76rem;
 }
 
@@ -46,7 +49,10 @@ main {
     grid-template-rows: auto 8rem;
     height: 60rem;
     margin: 0 auto;
-    min-height: auto;
+  }
+
+  main.adjusted {
+    min-height: initial;
   }
 }
 

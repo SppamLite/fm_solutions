@@ -115,8 +115,10 @@ const MultiStepForm = () => {
   const onClickNext = () => changeStep();
   const onNav = (step: number) => changeStep(step);
 
+  const isAdjustedHeight = currentStep.value === 2;
+
   return (
-    <main class="animation-in">
+    <main class={`${isAdjustedHeight ? "adjusted" : ""}`}>
       <h1 class="sr-only">Multi Step Form</h1>
       <StepNav onNav={onNav} currentStep={currentStep.value} />
       <section class="steps">
