@@ -29,6 +29,7 @@ main {
   height: 100vh;
   height: 100svh;
   position: relative;
+  min-height: 76rem;
 }
 
 @media screen and (min-width: 700px) {
@@ -45,6 +46,7 @@ main {
     grid-template-rows: auto 8rem;
     height: 60rem;
     margin: 0 auto;
+    min-height: auto;
   }
 }
 
