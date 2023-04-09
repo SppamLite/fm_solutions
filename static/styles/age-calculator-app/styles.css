@@ -1,0 +1,98 @@
+:root {
+  --color-black: #151515;
+  --color-purple: #854DFF;
+  --color-gray: #716F6F;
+  --color-line: #DCDCDC;
+  --color-red: #FF5959;
+}
+
+/* Hide number arrows
+https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F0F0F0;
+}
+
+/* components */
+form {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: space-between;
+}
+
+.number-input {
+  gap: .4rem;
+}
+@media screen and (min-width: 640px) {
+  .number-input {
+    gap: .8rem;
+  }
+}
+
+.number-input input {
+  font-weight: 700;
+  font-size: 2rem;
+  height: 5.4rem;
+  max-width: 16rem;
+  line-height: 3rem;
+  border-radius: .8rem;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--color-line);
+  padding: 0 1.6rem;
+  cursor: pointer;
+  transition: var(--transition) border-color;
+}
+.number-input input:hover,
+.number-input input:focus,
+.number-input input:focus-visible {
+  border-color: var(--color-purple);
+}
+.number-input input:focus-visible {
+  outline: 2px dotted var(--color-purple);
+  outline-offset: 4px;
+}
+
+
+@media screen and (min-width: 640px) {
+  .number-input input {
+    padding: 0 2.4rem;
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+  }
+}
+
+.number-input label,
+.number-input .error {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+@media screen and (min-width: 640px) {
+  .number-input label,
+  .number-input .error {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+}
+
+.number-input label {
+  font-weight: 700;
+  letter-spacing: .25em;
+  color: var(--color-gray);
+}
+
+.number-input .error {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-red);
+}
