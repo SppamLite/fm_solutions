@@ -11,17 +11,23 @@ export const AgeDisplay = ({
   months,
   days,
 }: Props) => (
-  <div class="age-display">
+  <div class="age-display flex flex-col">
     <h2>
-      {years ? <RollingNumber value={years} /> : "--"}
+      {years
+        ? <RollingNumber value={years} />
+        : <span class="animation-in t-purple">--</span>}
       <span>years</span>
     </h2>
     <h2>
-      {months ? <RollingNumber value={months} /> : "--"}
+      {months
+        ? <RollingNumber value={months} />
+        : <span class="animation-in t-purple">--</span>}
       <span>months</span>
     </h2>
     <h2>
-      {days ? <RollingNumber value={days} /> : "--"}
+      {days
+        ? <RollingNumber value={days} />
+        : <span class="animation-in t-purple">--</span>}
       <span>days</span>
     </h2>
   </div>

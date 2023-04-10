@@ -2,6 +2,7 @@ import { JSX } from "preact";
 import { useSignal } from "@preact/signals";
 import { NumberInput } from "../components/age-calculator-app/NumberInput.tsx";
 import { AgeDisplay } from "../components/age-calculator-app/AgeDisplay.tsx";
+import { CalculateButton } from "../components/age-calculator-app/CalculateButton.tsx";
 
 type Props = {
   defaultDay?: number;
@@ -37,27 +38,30 @@ const AgeCalculator = ({
 
   return (
     <section class="animation-in">
-      <form>
-        <NumberInput
-          value={dayOfBirth.value}
-          id="dayOfBirth"
-          label="DAY"
-          onChange={handleValueChange}
-        />
-        <NumberInput
-          value={monthOfBirth.value}
-          id="monthOfBirth"
-          onChange={handleValueChange}
-          label="MONTH"
-        />
-        <NumberInput
-          value={yearOfBirth.value}
-          id="yearOfBirth"
-          onChange={handleValueChange}
-          label="YEAR"
-        />
-      </form>
-      <AgeDisplay />
+      <div class="container flex flex-col">
+        <form>
+          <NumberInput
+            value={dayOfBirth.value}
+            id="dayOfBirth"
+            label="DAY"
+            onChange={handleValueChange}
+          />
+          <NumberInput
+            value={monthOfBirth.value}
+            id="monthOfBirth"
+            onChange={handleValueChange}
+            label="MONTH"
+          />
+          <NumberInput
+            value={yearOfBirth.value}
+            id="yearOfBirth"
+            onChange={handleValueChange}
+            label="YEAR"
+          />
+        </form>
+        <CalculateButton />
+        <AgeDisplay />
+      </div>
     </section>
   );
 };
