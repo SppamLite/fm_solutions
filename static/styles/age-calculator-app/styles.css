@@ -96,3 +96,12 @@ form {
   font-style: italic;
   color: var(--color-red);
 }
+
+/* utils */
+.t-purple {
+  color: var(--color-purple);
+}
+
+.t-black {
+  color: var(--color-black);
+}

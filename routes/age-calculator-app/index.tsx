@@ -19,6 +19,7 @@ const Home = ({ route }: PageProps) => (
       />
       <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href={`/styles${route}/styles.css`} />
+      <script type="module" src={`/scripts${route}/rolling-number.js`}></script>
     </Head>
     <main>
       <h1 class="sr-only">Age Calculator App</h1>

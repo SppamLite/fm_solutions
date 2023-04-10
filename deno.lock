@@ -126,6 +126,7 @@
     "https://esm.sh/check-password-strength@2.0.7": "bdd0437e7ba189fbe0679b8517620c51396b827aa389afc36274dd8410333985",
     "https://esm.sh/copy-to-clipboard@3.3.3": "8523c5f8035a20c763751188b8707075d367f841036957fc1d82144da2d0d1d0",
     "https://esm.sh/nanodelay@2.0.2": "a636edfe97cd9c552851bde1178f7670f0b916c341c9c178885ef36550caca10",
+    "https://esm.sh/preact-custom-element@4.2.1": "64e71e4ffe907e2d5374cf45084706e2e456542dbb97825da1dab415e90dee31",
     "https://esm.sh/preact@10.11.0": "e888b244446037c56f1881173fb51d1f5fa7aae5599e6c5154619346a6a5094e",
     "https://esm.sh/preact@10.11.0/hooks": "2b8ec155eb8b87501663f074acff1d55a9114fa7d88f0b39da06c940af1ff736",
     "https://esm.sh/preact@10.11.0/jsx-runtime": "5c123264f19799ab243211132dded45f6d42d594b5c78dd585f947d07bf20eae",
@@ -134,6 +135,7 @@
     "https://esm.sh/stable/preact@10.11.0/deno/hooks/src/index.js": "912138040af8c091d91e716c34eaeb63af6e752cfccb5bfbaea8dba8a4fa24ae",
     "https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js": "b5a8e96758c20b5dea05802c6f6962b8a95bfdbd476eb4ea51cf3234f6e09271",
     "https://esm.sh/stable/preact@10.11.0/deno/preact.js": "071b515099e5dff2fe56768be62644e32fab702b194171357ccc4d7d1210144a",
+    "https://esm.sh/stable/preact@10.13.2/deno/preact.mjs": "365fab897381f4f403f859c5d12939084560545567108cc90dae901bbe892578",
     "https://esm.sh/stable/react@18.2.0/deno/react.js": "0113c672572d23a90490f1b03731866a18bbbfe2ab4ff8e52c2e91b60c4188f0",
     "https://esm.sh/v106/@floating-ui/core@1.1.1/index.d.ts": "7aed171c73ed751bdaf51e4841d9f0b08971edf76f9057e9d4c6afd44ebe855d",
     "https://esm.sh/v106/@floating-ui/core@1.1.1/src/computePosition.d.ts": "df4fbb6ed6007ae9d9a99dced4d2c61513cb6326b553ae662dd845140860c69d",
@@ -167,6 +169,7 @@
     "https://esm.sh/v106/preact-render-to-string@5.2.4/X-ZS8q/src/index.d.ts": "b1d73703252c8570fdf2952475805f5808ba3511fefbd93a3e7bd8406de7dcd0",
     "https://esm.sh/v106/preact@10.11.0/hooks/src/index": "bc4919811fa088094933030b63e2d77c7b38112576be4736034ac0277e77e0a3",
     "https://esm.sh/v106/preact@10.11.0/hooks/src/index.d.ts": "5c29febb624fc25d71cb0e125848c9b711e233337a08f7eacfade38fd4c14cc3",
+    "https://esm.sh/v106/preact@10.11.0/hooks/src/index.js": "bc4919811fa088094933030b63e2d77c7b38112576be4736034ac0277e77e0a3",
     "https://esm.sh/v106/preact@10.11.0/jsx-runtime/src/index.d.ts": "e153460ed2b3fe2ad8b93696ecd48fbf73cd628b0b0ea6692b71804a3af69dfd",
     "https://esm.sh/v106/preact@10.11.0/src/index.d.ts": "1a5c331227be54be6515b0c92a469d352834fa413963ae84a39a05a3177111f6",
     "https://esm.sh/v106/preact@10.11.0/src/jsx.d.ts": "c423715fd7992b2e1446fea11d2d04e8adbd66c1edca1ce5e85f90e0d26a2eb2",
@@ -196,6 +199,9 @@
     "https://esm.sh/v110/nanodelay@2.0.2/deno/nanodelay.js": "c4b02b2763a05e794a79645c7b88c18d7a2e60e08e9c8457602a08c2e39fb20c",
     "https://esm.sh/v110/nanodelay@2.0.2/index.d.ts": "08ec5c2488fef585cef432997a0d4f5296b058fc4e5e68c7a7bdd8d248a2f0e2",
     "https://esm.sh/v110/toggle-selection@1.0.6/deno/toggle-selection.js": "4b5012e1b9e8b4087ecd91e97bad05fe01ab17e609eae2a6e2078f6578fdc255",
+    "https://esm.sh/v113/preact@10.11.0/hooks/src/index.d.ts": "5c29febb624fc25d71cb0e125848c9b711e233337a08f7eacfade38fd4c14cc3",
+    "https://esm.sh/v113/preact@10.11.0/src/index.d.ts": "1a5c331227be54be6515b0c92a469d352834fa413963ae84a39a05a3177111f6",
+    "https://esm.sh/v113/preact@10.11.0/src/jsx.d.ts": "c423715fd7992b2e1446fea11d2d04e8adbd66c1edca1ce5e85f90e0d26a2eb2",
     "https://esm.sh/v113/zod@3.21.4/deno/zod.mjs": "652b3e1f40b7dbb5b32d5c4d4fc7f1cbe06b0cf87c16cb7cd0c62f8ce9457406",
     "https://esm.sh/v113/zod@3.21.4/index.d.ts": "b51c954b9557b1dcb03b2bf34cd136e710cb9aa276e686cac0e291249590a52a",
     "https://esm.sh/v113/zod@3.21.4/lib/ZodError.d.ts": "1f19511459549a66526d9dcc3b2288e59fa5fd4cf42b390a945d0bdc289806df",
@@ -210,6 +216,8 @@
     "https://esm.sh/v113/zod@3.21.4/lib/index.d.ts": "e6e0b04af1500398c8840582cce03d8907d6475005eb490f0e07bb33db6da66c",
     "https://esm.sh/v113/zod@3.21.4/lib/locales/en.d.ts": "f8ec1611afb8d132c6c71822718805866890cf2071025153af97508eff24e4b6",
     "https://esm.sh/v113/zod@3.21.4/lib/types.d.ts": "d7eecca2a9e02b2b2f51eaef95956f490a5780d03b32b9865068a63a26810f01",
+    "https://esm.sh/v114/preact@10.13.2/src/index.d.ts": "65398710de6aa0a07412da79784e05e6e96763f51c7c91b77344d2d0af06385c",
+    "https://esm.sh/v114/preact@10.13.2/src/jsx.d.ts": "9ac9b82c199fa7b04748807d750eba1a106c0be52041b8617416f88d6fc0a257",
     "https://esm.sh/zod@3.21.4": "48e7e3ab8c7f82327460be3b454f97475960271dda2d8de546694a8b81c45512"
   }
 }
