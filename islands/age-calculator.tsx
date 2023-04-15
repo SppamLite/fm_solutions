@@ -103,30 +103,36 @@ const AgeCalculator = ({
     };
   };
 
+  const updateInputError = (id: string, isValid: boolean) => {
+    if (isValid) {
+      inputError.value = pipe(
+        inputError.value,
+        D.set(id, ""),
+      );
+    } else {
+      inputError.value = pipe(
+        inputError.value,
+        D.set(id, "Invalid input"),
+      );
+    }
+  };
+
   const handleValueChange: InputHandler = ({ currentTarget }) => {
     const id = currentTarget.id;
     const value = Number.parseInt(currentTarget.value);
-    if (!value) return;
-    if (id === "dayOfBirth") {
+    const isValid = !isNaN(value);
+
+    if (id === "day") {
       dayOfBirth.value = value;
-      inputError.value = pipe(
-        inputError.value,
-        D.set("day", ""),
-      );
+      updateInputError(id, isValid);
     }
-    if (id === "monthOfBirth") {
+    if (id === "month") {
       monthOfBirth.value = value;
-      inputError.value = pipe(
-        inputError.value,
-        D.set("month", ""),
-      );
+      updateInputError(id, isValid);
     }
-    if (id === "yearOfBirth") {
+    if (id === "year") {
       yearOfBirth.value = value;
-      inputError.value = pipe(
-        inputError.value,
-        D.set("year", ""),
-      );
+      updateInputError(id, isValid);
     }
   };
 
@@ -136,21 +142,21 @@ const AgeCalculator = ({
         <form>
           <NumberInput
             value={dayOfBirth.value}
-            id="dayOfBirth"
+            id="day"
             label="DAY"
             onChange={handleValueChange}
             error={inputError.value.day}
           />
           <NumberInput
             value={monthOfBirth.value}
-            id="monthOfBirth"
+            id="month"
             label="MONTH"
             onChange={handleValueChange}
             error={inputError.value.month}
           />
           <NumberInput
             value={yearOfBirth.value}
-            id="yearOfBirth"
+            id="year"
             label="YEAR"
             onChange={handleValueChange}
             error={inputError.value.year}
