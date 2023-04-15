@@ -1,6 +1,7 @@
 import { JSX } from "preact";
 import { useSignal } from "@preact/signals";
-import { intervalToDuration, parse } from "date-fns";
+import { A, D, N, O, pipe } from "@mobily/ts-belt";
+import { getDaysInMonth, intervalToDuration } from "date-fns";
 import { NumberInput } from "../components/age-calculator-app/NumberInput.tsx";
 import { AgeDisplay } from "../components/age-calculator-app/AgeDisplay.tsx";
 import { CalculateButton } from "../components/age-calculator-app/CalculateButton.tsx";
@@ -16,7 +17,16 @@ type Duration = {
   days?: number;
 };
 
+type InputError = {
+  day: string;
+  month: string;
+  year: string;
+};
+
 type InputHandler = JSX.GenericEventHandler<HTMLInputElement>;
+
+const getMaxDays = (month: number, year: number) =>
+  getDaysInMonth(new Date(year, month - 1)); // come on, javascript 🙄
 
 const AgeCalculator = ({
   defaultDay,
@@ -27,8 +37,56 @@ const AgeCalculator = ({
   const monthOfBirth = useSignal<number>(defaultMonth || 0);
   const yearOfBirth = useSignal<number>(defaultYear || 0);
   const duration = useSignal<Duration | null>(null);
+  const inputError = useSignal<InputError>({ day: "", month: "", year: "" });
+
+  const isValidDate = (): boolean => {
+    const now = new Date();
+    const year = yearOfBirth.value;
+    const month = monthOfBirth.value;
+    const day = dayOfBirth.value;
+
+    if (year < 1) {
+      inputError.value = pipe(
+        inputError.value,
+        D.set("year", "Must be a valid month"),
+      );
+    }
+    if (now.getFullYear() < year) {
+      inputError.value = pipe(
+        inputError.value,
+        D.set("year", "Must be in the past"),
+      );
+    }
+
+    if (month > 12 || month < 1) {
+      inputError.value = pipe(
+        inputError.value,
+        D.set("month", "Must be a valid month"),
+      );
+    }
+
+    const maxDays = getMaxDays(month, year);
+
+    if (day > maxDays || day < 1) {
+      inputError.value = pipe(
+        inputError.value,
+        D.set("day", "Must be a valid day"),
+      );
+    }
+
+    return pipe(
+      inputError.value,
+      D.filter((value) => value !== ""),
+      D.keys,
+      A.length,
+      N.lt(1),
+    );
+  };
 
   const handleCalculate = () => {
+    const isValid = isValidDate();
+    if (!isValid) return;
+
     const start = new Date(
       yearOfBirth.value,
       monthOfBirth.value,
@@ -51,12 +109,24 @@ const AgeCalculator = ({
     if (!value) return;
     if (id === "dayOfBirth") {
       dayOfBirth.value = value;
+      inputError.value = pipe(
+        inputError.value,
+        D.set("day", ""),
+      );
     }
     if (id === "monthOfBirth") {
       monthOfBirth.value = value;
+      inputError.value = pipe(
+        inputError.value,
+        D.set("month", ""),
+      );
     }
     if (id === "yearOfBirth") {
       yearOfBirth.value = value;
+      inputError.value = pipe(
+        inputError.value,
+        D.set("year", ""),
+      );
     }
   };
 
@@ -69,18 +139,21 @@ const AgeCalculator = ({
             id="dayOfBirth"
             label="DAY"
             onChange={handleValueChange}
+            error={inputError.value.day}
           />
           <NumberInput
             value={monthOfBirth.value}
             id="monthOfBirth"
-            onChange={handleValueChange}
             label="MONTH"
+            onChange={handleValueChange}
+            error={inputError.value.month}
           />
           <NumberInput
             value={yearOfBirth.value}
             id="yearOfBirth"
-            onChange={handleValueChange}
             label="YEAR"
+            onChange={handleValueChange}
+            error={inputError.value.year}
           />
         </form>
         <CalculateButton onClick={handleCalculate} />
