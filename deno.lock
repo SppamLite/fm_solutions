@@ -125,6 +125,7 @@
     "https://esm.sh/@wcj/generate-password@1.0.3": "0a9a6d7fded5bb48351a63b550059c41c19a0b0262b163bd36b572db61dd6727",
     "https://esm.sh/check-password-strength@2.0.7": "bdd0437e7ba189fbe0679b8517620c51396b827aa389afc36274dd8410333985",
     "https://esm.sh/copy-to-clipboard@3.3.3": "8523c5f8035a20c763751188b8707075d367f841036957fc1d82144da2d0d1d0",
+    "https://esm.sh/date-fns@2.29.3": "d4e7c05f22e6a3c7268c48218372d973941dcda902137868aede335095715163",
     "https://esm.sh/nanodelay@2.0.2": "a636edfe97cd9c552851bde1178f7670f0b916c341c9c178885ef36550caca10",
     "https://esm.sh/preact-custom-element@4.2.1": "64e71e4ffe907e2d5374cf45084706e2e456542dbb97825da1dab415e90dee31",
     "https://esm.sh/preact@10.11.0": "e888b244446037c56f1881173fb51d1f5fa7aae5599e6c5154619346a6a5094e",
@@ -218,6 +219,8 @@
     "https://esm.sh/v113/zod@3.21.4/lib/types.d.ts": "d7eecca2a9e02b2b2f51eaef95956f490a5780d03b32b9865068a63a26810f01",
     "https://esm.sh/v114/preact@10.13.2/src/index.d.ts": "65398710de6aa0a07412da79784e05e6e96763f51c7c91b77344d2d0af06385c",
     "https://esm.sh/v114/preact@10.13.2/src/jsx.d.ts": "9ac9b82c199fa7b04748807d750eba1a106c0be52041b8617416f88d6fc0a257",
+    "https://esm.sh/v115/date-fns@2.29.3/deno/date-fns.mjs": "12466676cd4455c40b04fe596e0ad9feea8043c82fda04caa923d061f5298e8e",
+    "https://esm.sh/v115/date-fns@2.29.3/typings.d.ts": "cf017d986f600046edc03ea2517c699980d67a0cd16143a3d258ab2e311edcbd",
     "https://esm.sh/zod@3.21.4": "48e7e3ab8c7f82327460be3b454f97475960271dda2d8de546694a8b81c45512"
   }
 }
