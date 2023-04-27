@@ -17,6 +17,7 @@
     "check-password-strength/": "https://esm.sh/check-password-strength@2.0.7/",
     "nanodelay": "https://esm.sh/nanodelay@2.0.2",
     "copy-to-clipboard": "https://esm.sh/copy-to-clipboard@3.3.3",
-    "zod": "https://esm.sh/zod@3.21.4"
+    "zod": "https://esm.sh/zod@3.21.4",
+    "date-fns": "https://esm.sh/date-fns@2.29.3"
   }
 }
