@@ -5,6 +5,7 @@ import { getDaysInMonth, intervalToDuration } from "date-fns";
 import { NumberInput } from "../components/age-calculator-app/NumberInput.tsx";
 import { AgeDisplay } from "../components/age-calculator-app/AgeDisplay.tsx";
 import { CalculateButton } from "../components/age-calculator-app/CalculateButton.tsx";
+import { useEffect } from "preact/hooks";
 
 type Props = {
   defaultDay?: number;
@@ -23,32 +24,54 @@ type InputError = {
   year: string;
 };
 
+type GetDuration = {
+  year: number;
+  month: number;
+  day: number;
+};
+
 type InputHandler = JSX.GenericEventHandler<HTMLInputElement>;
 
 const getMaxDays = (month: number, year: number) =>
   getDaysInMonth(new Date(year, month - 1)); // come on, javascript 🙄
+
+const getDuration = ({ year, month, day }: GetDuration) =>
+  intervalToDuration({
+    start: new Date(
+      year,
+      month,
+      day,
+    ),
+    end: new Date(),
+  });
 
 const AgeCalculator = ({
   defaultDay,
   defaultMonth,
   defaultYear,
 }: Props) => {
-  const dayOfBirth = useSignal<number>(defaultDay || 0);
-  const monthOfBirth = useSignal<number>(defaultMonth || 0);
-  const yearOfBirth = useSignal<number>(defaultYear || 0);
+  const dayOfBirth = useSignal<number | null>(defaultDay || null);
+  const monthOfBirth = useSignal<number | null>(defaultMonth || null);
+  const yearOfBirth = useSignal<number | null>(defaultYear || null);
   const duration = useSignal<Duration | null>(null);
   const inputError = useSignal<InputError>({ day: "", month: "", year: "" });
 
   const isValidDate = (): boolean => {
     const now = new Date();
-    const year = yearOfBirth.value;
-    const month = monthOfBirth.value;
-    const day = dayOfBirth.value;
+    const year = yearOfBirth.value || 0;
+    const month = monthOfBirth.value || 0;
+    const day = dayOfBirth.value || 0;
 
     if (year < 1) {
       inputError.value = pipe(
         inputError.value,
-        D.set("year", "Must be a valid month"),
+        D.set("year", "Must be a valid year"),
+      );
+    }
+    if (year < 1700) {
+      inputError.value = pipe(
+        inputError.value,
+        D.set("year", "Must be over 1700 🤔"),
       );
     }
     if (now.getFullYear() < year) {
@@ -86,16 +109,12 @@ const AgeCalculator = ({
   const handleCalculate = () => {
     const isValid = isValidDate();
     if (!isValid) return;
-
-    const start = new Date(
-      yearOfBirth.value,
-      monthOfBirth.value,
-      dayOfBirth.value,
-    );
-    const { years, months, days } = intervalToDuration({
-      start,
-      end: new Date(),
+    const { years, months, days } = getDuration({
+      year: yearOfBirth.value || 0,
+      month: monthOfBirth.value || 0,
+      day: dayOfBirth.value || 0,
     });
+
     duration.value = {
       years,
       months,
@@ -136,30 +155,48 @@ const AgeCalculator = ({
     }
   };
 
+  useEffect(() => {
+    if (!defaultDay || !defaultMonth || !defaultYear) return;
+    const { years, months, days } = getDuration({
+      year: defaultYear,
+      month: defaultMonth,
+      day: defaultDay,
+    });
+
+    duration.value = {
+      years,
+      months,
+      days,
+    };
+  }, [defaultDay, defaultMonth, defaultYear]);
+
   return (
     <section class="animation-in">
       <div class="container flex flex-col">
         <form>
           <NumberInput
-            value={dayOfBirth.value}
+            value={dayOfBirth.value || ""}
             id="day"
             label="DAY"
             onChange={handleValueChange}
             error={inputError.value.day}
+            placeholder="DD"
           />
           <NumberInput
-            value={monthOfBirth.value}
+            value={monthOfBirth.value || ""}
             id="month"
             label="MONTH"
             onChange={handleValueChange}
             error={inputError.value.month}
+            placeholder="MM"
           />
           <NumberInput
-            value={yearOfBirth.value}
+            value={yearOfBirth.value || ""}
             id="year"
             label="YEAR"
             onChange={handleValueChange}
             error={inputError.value.year}
+            placeholder="YYYY"
           />
         </form>
         <CalculateButton onClick={handleCalculate} />

@@ -9,7 +9,6 @@ type Props = JSX.HTMLAttributes<HTMLInputElement> & {
 export const NumberInput = ({
   id,
   value,
-  disabled,
   label,
   error,
   ...rest
@@ -20,7 +19,7 @@ export const NumberInput = ({
       id={id}
       type="number"
       value={value}
-      disabled={!IS_BROWSER || disabled}
+      disabled={!IS_BROWSER}
       {...rest}
     />
     {error && <p class="animation-in error">{error}</p>}

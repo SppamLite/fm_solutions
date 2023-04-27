@@ -23,7 +23,7 @@ const Home = ({ route }: PageProps) => (
     </Head>
     <main>
       <h1 class="sr-only">Age Calculator App</h1>
-      <AgeCalculator defaultDay={24} defaultMonth={9} defaultYear={1984} />
+      <AgeCalculator />
     </main>
   </>
 );
