@@ -1,3 +1,4 @@
+import { G } from "@mobily/ts-belt";
 import { RollingNumber } from "./RollingNumber.tsx";
 
 type Props = {
@@ -12,23 +13,23 @@ export const AgeDisplay = ({
 }: Props) => (
   <div class="age-display flex flex-col">
     <h2>
-      {years
+      {G.isNumber(years)
         ? <RollingNumber value={years} />
         : <span class="animation-in t-purple">- -</span>}
-      <span>years</span>
+      <span class="unit">years</span>
       {years && years > 100 && <span class="animation-in">🤨</span>}
     </h2>
     <h2>
-      {months
+      {G.isNumber(months)
         ? <RollingNumber value={months} />
         : <span class="animation-in t-purple">- -</span>}
-      <span>months</span>
+      <span class="unit">months</span>
     </h2>
     <h2>
-      {days
+      {G.isNumber(days)
         ? <RollingNumber value={days} />
         : <span class="animation-in t-purple">- -</span>}
-      <span>days</span>
+      <span class="unit">days</span>
     </h2>
   </div>
 );
