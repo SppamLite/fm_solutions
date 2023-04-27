@@ -67,8 +67,7 @@ const AgeCalculator = ({
         inputError.value,
         D.set("year", "Must be a valid year"),
       );
-    }
-    if (year < 1700) {
+    } else if (year < 1700) {
       inputError.value = pipe(
         inputError.value,
         D.set("year", "Must be over 1700 🤔"),

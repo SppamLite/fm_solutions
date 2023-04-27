@@ -13,7 +13,7 @@ export const NumberInput = ({
   error,
   ...rest
 }: Props) => (
-  <div class="number-input flex flex-col">
+  <div class={`number-input flex flex-col${error ? " error" : ""}`}>
     <label htmlFor={id}>{label}</label>
     <input
       id={id}

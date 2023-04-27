@@ -69,6 +69,14 @@ form {
   gap: .4rem;
 }
 
+.number-input.error label{
+  color: var(--color-red);
+}
+
+.number-input.error input {
+  border-color: var(--color-red);
+}
+
 @media screen and (min-width: 670px) {
   .number-input {
     gap: .8rem;
@@ -149,6 +157,7 @@ button:focus-visible,
   font-family: 'Poppins', sans-serif;
   display: flex;
   gap: 1.1rem;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 670px) {
